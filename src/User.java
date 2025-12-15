@@ -1,13 +1,13 @@
 public class User {
 
-    private String Name;
-    private String Email;
-    private String Password;
+    private String name;
+    private String email;
+    private String password;
 
     public User(String name, String email, String password) {
-        Name = name;
-        Email = email;
-        Password = password;
+        name = name;
+        email = email;
+        password = password;
     }
 
 }
