@@ -3,11 +3,21 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private String schoolClass;
 
-    public User(String name, String email, String password) {
+    public User(String name, String email, String password, String schoolClass) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.schoolClass = schoolClass;
+    }
+
+    public String schoolClass() {
+        return schoolClass;
+    }
+
+    public void setSchoolClass(String klass) {
+        this.schoolClass = klass;
     }
 
     public String getName() {
