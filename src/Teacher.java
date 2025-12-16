@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -48,8 +51,23 @@ public class Teacher extends User{
 
     }
 
-    public void writeNewsLetters() {
-        System.out.println("Skriver newsletter");
+    public void writeNewsLetter() {
+        try (PrintWriter output = new PrintWriter(new File("WeeklyNewsLetter.txt"))) {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Skriv veckobrevet. Skriv exit för att sluta");
+            String text = "";
+            while(true){
+                text = input.nextLine();
+                if (text.equalsIgnoreCase("exit")){
+                    break;
+                }
+                output.append(text);
+            }
+
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

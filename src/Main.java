@@ -59,7 +59,7 @@ public class Main {
                         teacher.setGrades(users);
                         break;
                     case 2:
-                        teacher.writeNewsLetters();
+                        teacher.writeNewsLetter();
                         break;
                     case 3:
                         teacher.viewClassList();
