@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Run {
 
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
     public User login(ArrayList<User> users) {
         System.out.println("Email:");
@@ -12,8 +12,8 @@ public class Run {
         System.out.println("Password:");
         String password = input.nextLine();
 
-        for(User user : users) {
-            if(user.getEmail().equals(email) && user.getPassword().equals(password)) {
+        for (User user : users) {
+            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
                 System.out.println("Välkommen " + user.getName());
                 return user;
             }
@@ -38,10 +38,5 @@ public class Run {
         return input.nextInt();
     }
 
-    public void printWelcomeMessage(){
-        System.out.println("Välkommen till superskolan, vad vill du göra?");
-    }
-
 }
-
 
