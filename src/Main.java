@@ -1,36 +1,61 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
 
         Run run = new Run();
-        Student Nils = new Student("Nils", "nils@fakemail.se", "hamburger");
 
-        run.printWelcomeMessage();
+        //fake databas
+        ArrayList<User> users = new ArrayList<>();
+        users.add(new Student("Nils", "s", "1"));
+        users.add(new Teacher("Annika", "t", "2"));
 
-        int running = 1;
-        while(running == 1){
-            int choice = run.getFirstChoice();
-            switch (choice){
 
-                case 1:
-                    int loggedIn = 1;
-                    System.out.println("Du loggade in!");
-                    while(loggedIn == 1){
-                        choice = run.getSecondChoice();
-                        switch(choice){
-                            case 1:
-                                System.out.println("Dina betyg: Programmering = MVG");
-                                break;
-                            case 2:
-                                System.out.println("Du loggar ut:");
-                                loggedIn = 0;
-                                break;
-                        }
-                    }
-                    break;
-                case 2:
-                    running = 0;
-                    System.out.println("Stänger av");
-                    break;
+        User loggedInUser = run.login(users);
+
+        while (loggedInUser == null) {
+            loggedInUser = run.login(users);
+        }
+
+        while(loggedInUser != null) {
+
+            if(loggedInUser instanceof Student){
+                Student student = (Student) loggedInUser;
+                int choice = run.displayStudentMenu();
+
+                switch(choice) {
+                    case 1:
+                        student.viewGrades();
+                        break;
+                    case 2:
+                        student.viewSchedule();
+                        break;
+                    case 3:
+                        student.viewNewsLetters();
+                        break;
+                    case 4:
+                        System.out.println("Du loggar ut!");
+                        loggedInUser = null;
+                        break;
+                }
+            }
+
+            if(loggedInUser instanceof Teacher){
+                Teacher teacher = (Teacher) loggedInUser;
+                int choice = run.displayTeacherMenu();
+
+                switch(choice) {
+                    case 1:
+                        teacher.setGrades();
+                        break;
+                    case 2:
+                        teacher.writeNewsLetters();
+                        break;
+                    case 3:
+                        System.out.println("Du loggar ut!");
+                        loggedInUser = null;
+                        break;
+                }
             }
         }
     }

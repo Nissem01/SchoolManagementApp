@@ -6,10 +6,12 @@ public class Teacher extends User{
     }
 
     public void setGrades() {
+        System.out.println("Sätter betyg");
 
     }
 
     public void writeNewsLetters() {
+        System.out.println("Skriver newsletter");
 
     }
 
