@@ -9,8 +9,12 @@ public class Course {
 
 
 
-    public Course() {}
-    public Course(String courseName) {}
+    public Course() {
+
+    }
+    public Course(String courseName) {
+
+    }
 
     public Course(String courseName, List<Student> students) {
         this.courseName = courseName;

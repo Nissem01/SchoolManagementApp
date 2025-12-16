@@ -29,5 +29,8 @@ public class Student extends User{
            else System.out.println("Course not found");
        }
     }
+    public String toString(){
+        return super.getName();
+    }
 
 }
