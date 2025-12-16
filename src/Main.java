@@ -56,13 +56,14 @@ public class Main {
 
                 switch(choice) {
                     case 1:
-//                        teacher.setGrades();
+                        teacher.setGrades(users);
                         break;
                     case 2:
                         teacher.writeNewsLetters();
                         break;
                     case 3:
                         teacher.viewClassList();
+                        break;
                     case 4:
                         System.out.println("Du loggar ut!");
                         loggedInUser = null;

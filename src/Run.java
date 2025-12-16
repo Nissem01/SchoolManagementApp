@@ -36,7 +36,7 @@ public class Run {
         System.out.println("1. Sätt betyg");
         System.out.println("2. Skriv veckobrev");
         System.out.println("3. Visa klasslista");
-        System.out.println("5. Logga ut");
+        System.out.println("4. Logga ut");
         return input.nextInt();
     }
 

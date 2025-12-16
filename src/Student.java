@@ -13,10 +13,21 @@ public class Student extends User{
     }
 
     public void viewGrades() {
-        System.out.println("Grades:");
+        System.out.println("Betyg:");
         for (Grade grade : grades) {
             System.out.println(grade.getCourse().getCourseName() + ": " + grade.getGrade());
         }
+    }
+
+    public void setGrade(String courseName, int newGrade) {
+        for (Grade grade : grades) {
+            if (grade.getCourse().getCourseName().equalsIgnoreCase(courseName)) {
+                grade.setGrade(newGrade);
+                System.out.println("Betyg uppdaterat");
+                return;
+            }
+        }
+        System.out.println("Kursen kunde inte hittas!");
     }
 
     public void viewSchedule() {
