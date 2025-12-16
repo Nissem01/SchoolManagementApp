@@ -28,6 +28,7 @@ public class Run {
         System.out.println("2. Visa schema");
         System.out.println("3. Visa veckobrev");
         System.out.println("4. Visa klasslista");
+        System.out.println("5. Hantera frånvaro");
         System.out.println("5. Logga ut");
         return input.nextInt();
     }

@@ -44,6 +44,9 @@ public class Main {
                         student.viewClassList();
                         break;
                     case 5:
+                        student.viewAbsence();
+                        break;
+                    case 6:
                         System.out.println("Du loggar ut!");
                         loggedInUser = null;
                         break;
