@@ -1,11 +1,11 @@
+import java.util.HashMap;
 import java.util.List;
 
 public class Course {
 
     private String courseName;
-    private String courseGrade;
-    private List<Student> students;
     private Teacher teacher;
+    private HashMap<Student, Integer> grades = new HashMap<>();
 
 
 
@@ -13,12 +13,19 @@ public class Course {
 
     }
     public Course(String courseName) {
-
+        this.courseName = courseName;
+    }
+    public Course(String courseName, Teacher teacher) {
+        this.courseName = courseName;
+        this.teacher = teacher;
+        teacher.addCourse(this);
     }
 
-    public Course(String courseName, List<Student> students) {
-        this.courseName = courseName;
-        this.students = students;
+    public void setGrades(Student student, int grade) {
+        grades.put(student, grade);
+    }
+    public Integer getGrades(Student student) {
+        return grades.get(student);
     }
 
     public String getCourseName() {
@@ -29,11 +36,16 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public String getCourseGrade() {
-        return courseGrade;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setCourseGrade(String courseGrade) {
-        this.courseGrade = courseGrade;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
+
+    public String toString(){
+        return courseName;
+    }
+
 }

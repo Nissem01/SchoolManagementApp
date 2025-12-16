@@ -6,44 +6,52 @@ import java.util.Scanner;
 
 public class TestAvFunktion {
 
-    SchoolClass sc =  new SchoolClass();
-    List<Student> klassEtt=new ArrayList<>();
-
-
-    Course course = new Course();
-
-
-
-
-
-    Teacher klas = new Teacher("klas", "klasse@themail.com", "jensÄrBäst!");
-    Course matte = new Course("Matte");
-    Student jenny = new Student("Jenny", "jennis@themail.com", "hästar123");
-    Student lasse = new Student("janne", "hej@hej.se", "hejehe");
-    SchoolClass ettan = new SchoolClass("Ettan", klas, klassEtt);
 
     void main(){
-        System.out.println(klassEtt);
-        System.out.println(ettan.getT());
-//        System.out.println(klassEtt.size());
-//        sc.addStudentToClass(jenny, klassEtt);
-//        sc.addStudentToClass(lasse, klassEtt);
 
-        ettan.addStudentToClass(jenny, klassEtt,"ettan");
-        System.out.println(klassEtt.size());
-        System.out.println(klassEtt);
-//        sc.ettan.add(lasse);
-//          sc.addStudentToClass(lasse, sc.getEttan());
-//          sc.addStudentToClass(jenny, sc.getEttan());
+        SchoolClass year1 = new SchoolClass("Årskurs 1");
+        SchoolClass year2 = new SchoolClass("Årskurs 2");
 
 
-//        sc.ettan.add(jenny);
-//        System.out.println(sc.ettan);
+        Teacher klas = new Teacher("klas", "klasse@themail.com", "jensÄrBäst!");
+        Teacher samme = new Teacher("Samme", "sampaboi@grus.se", "F0tBaLLisLaJF2k7");
 
-//        lasse.viewGrades();
+        Course matte = new Course("Matte", klas);
+        Course engelska = new Course("Engelska", klas);
+        Course idrott = new Course("Idrott");
 
-//        jenny.courses.add(matte);
-//        klas.setGrades(jenny,"matte", "MVG");
+        Student jenny = new Student("Jenny", "jennis@themail.com", "hästar123");
+        Student janne = new Student("janne", "hej@hej.se", "hejehe");
+        Student ludde = new Student("Ludde", "dsad@hej.se", "hej");
+        Student george = new Student("George", "gegge@yesmail.com", "hampa");
+
+
+        year1.addStudent(janne);
+        year1.addStudent(jenny);
+        year1.addStudent(ludde);
+
+        year2.addStudent(george);
+
+        for (Student student : year1.getStudents()){
+            System.out.println(student);
+        }
+
+
+        idrott.setTeacher(samme);
+
+        matte.setGrades(janne, 5);
+        engelska.setGrades(janne, 4);
+        System.out.println(matte.getGrades(janne));
+
+        for (Course c : klas.getCourses()){
+            System.out.println(c);
+        }
+
+
+
+
+
+
 
 
 
