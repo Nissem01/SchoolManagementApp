@@ -45,6 +45,7 @@ public class Course {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+        teacher.addCourse(this);
     }
 
     public String toString(){

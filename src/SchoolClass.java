@@ -44,4 +44,8 @@ public class SchoolClass {
         return courses;
     }
 
+    public String  toString(){
+        return schoolName;
+    }
+
 }

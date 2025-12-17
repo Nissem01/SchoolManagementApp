@@ -7,14 +7,22 @@ public class Main {
 
         Run run = new Run();
 
+        List<SchoolClass> schoolOfCode = new ArrayList<>();
+
 
         SchoolClass ettan =new SchoolClass("Ettan");
+        SchoolClass tvåan =new SchoolClass("Tvåan");
+        schoolOfCode.add(ettan);
+        schoolOfCode.add(tvåan);
 
 
 
         Teacher klas = new Teacher("klas", "klasse@themail.com", "jensÄrBäst!");
         Teacher annika = new Teacher("Annika", "t","2");
         ettan.addStudent(new Student("Nils", "s","1"));
+        ettan.addStudent(new Student("Jens", "s","1"));
+        ettan.addStudent(new Student("Pär", "s","1"));
+        ettan.addStudent(new Student("Filip", "s","1"));
 //        System.out.println(ettan.getStudents());
 
 
@@ -22,15 +30,13 @@ public class Main {
 //        A.addCourse(new Course("Engelska"));
 //        A.addCourse(new Course("Svenska"));
         Course matte = new Course("Matte");
+        Course engelska = new Course("Engelska");
         ettan.addCourse(matte);
+        ettan.addCourse(engelska);
         matte.setTeacher(annika);
 //        System.out.println(annika.getCourses());
 
-
-//        Course engelska = new Course("Engelska");
 //        Course idrott = new Course("Idrott");
-
-
 
         //fake databas
         List<User> users = new ArrayList<>();
@@ -39,6 +45,7 @@ public class Main {
             System.out.println(student);
         }
         users.add(matte.getTeacher());
+        users.add(engelska.getTeacher());
         System.out.println(users.size());
         System.out.println(users.get(0) +" "+  users.get(1));
 //        users.add(new Student("Nils", "s", "1"));
@@ -57,6 +64,7 @@ public class Main {
 
             if(loggedInUser instanceof Student){
                 Student student = (Student) loggedInUser;
+
 
                 int choice = run.displayStudentMenu();
 
@@ -85,11 +93,26 @@ public class Main {
 
             if(loggedInUser instanceof Teacher){
                 Teacher teacher = (Teacher) loggedInUser;
+                List<Course> courses = teacher.getCourses();
+                Course choosenCourse;
+                SchoolClass choosenclass;
+                List<Student> choosenstudents;
+                Student studentToGrade;
                 int choice = run.displayTeacherMenu();
 
                 switch(choice) {
                     case 1:
-                        teacher.setGrades(teacher);
+                        choosenCourse=teacher.getActiveCourses(courses);
+                        choosenclass=teacher.chooseSchoolClass(schoolOfCode);
+                        choosenstudents = choosenclass.getStudents();
+                        studentToGrade=teacher.chooseStudentToGrade(choosenstudents);
+                        int grade = teacher.setGradeInt();
+                        choosenCourse.setGrades(studentToGrade,grade);
+                        System.out.println(choosenCourse.getGrades(studentToGrade));
+
+                        System.out.println(studentToGrade+"s Betyg i " + choosenCourse + " är satt till: "+ choosenCourse.getGrades(studentToGrade));
+
+//                        teacher.setGrades(teacher,courses,users);
 //                        teacher.setGrades(users);
                         break;
                     case 2:

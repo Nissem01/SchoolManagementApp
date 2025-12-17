@@ -54,6 +54,7 @@ public class Student extends User{
         System.out.println("Betyg:");
 
 
+
 //        for (Grade grade : grades) {
 //            System.out.println(grade.getCourse().getCourseName() + ": " + grade.getGrade());
 //        }

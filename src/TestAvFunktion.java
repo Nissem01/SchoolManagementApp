@@ -52,7 +52,7 @@ public class TestAvFunktion {
 
         matte.setGrades(janne, 5);
         engelska.setGrades(janne, 4);
-//        System.out.println(matte.getGrades(janne));
+        System.out.println(matte.getGrades(janne));
 
         for (Course c : klas.getCourses()){
 //            System.out.println(c);
