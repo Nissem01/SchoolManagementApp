@@ -46,6 +46,7 @@ public class Student extends User{
     public void viewNewsLetter() {
         File file = new File("src/WeeklyNewsLetter.txt");
         try (Scanner scanner = new Scanner(file)) {
+            System.out.println("Veckobrev:");
             while (scanner.hasNextLine()) {
                 System.out.println(scanner.nextLine());
             }
