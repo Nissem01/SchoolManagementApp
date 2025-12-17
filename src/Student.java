@@ -1,4 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Student extends User{
 
@@ -38,8 +41,15 @@ public class Student extends User{
 
     }
 
-    public void viewNewsLetters() {
-        System.out.println("Här är veckobrevet");
-    }
+    public void viewNewsLetter() {
+        File file = new File("src/WeeklyNewsLetter.txt");
 
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Kunde inte hitta veckobrevet.");
+        }
+    }
 }

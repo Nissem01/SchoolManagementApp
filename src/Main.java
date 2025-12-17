@@ -38,7 +38,7 @@ public class Main {
                         student.viewSchedule();
                         break;
                     case 3:
-                        student.viewNewsLetters();
+                        student.viewNewsLetter();
                         break;
                     case 4:
                         student.viewClassList();
@@ -62,9 +62,12 @@ public class Main {
                         teacher.writeNewsLetter();
                         break;
                     case 3:
-                        teacher.viewClassList();
+                        teacher.resetNewsLetter();
                         break;
                     case 4:
+                        teacher.viewClassList();
+                        break;
+                    case 5:
                         System.out.println("Du loggar ut!");
                         loggedInUser = null;
                         break;
