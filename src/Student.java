@@ -79,10 +79,10 @@ public class Student extends User{
 //        return input.nextInt();
         switch (input.nextInt()){
             case 1:
-                absence.reportAbsence();
+                absence.reportAbsence(Student.this);
                 break;
             case 2:
-                absence.checkAbsence();
+                absence.checkAbsence(Student.this);
                 break;
             case 3:
                 break;

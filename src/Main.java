@@ -14,7 +14,7 @@ public class Main {
 
         //fake databas
         ArrayList<User> users = new ArrayList<>();
-        users.add(new Student("Nils", "s", "1", A));
+        users.add(new Student("Nils", "s", "1", A));  // Varför är schoolclass olika här? L
         users.add(new Teacher("Annika", "t", "2", "A"));
 
 
