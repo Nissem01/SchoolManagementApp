@@ -1,42 +1,47 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Run {
 
-    public int getFirstChoice(){
-        int choice = 0;
-        System.out.println("1. Logga in");
-        System.out.println("2. Exit");
+    private Scanner input = new Scanner(System.in);
 
-        while (choice == 0){
-            try{
-                Scanner input = new Scanner(System.in);
-                choice = input.nextInt();
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+    public User login(ArrayList<User> users) {
+        System.out.println("Email:");
+        String email = input.nextLine();
+
+        System.out.println("Password:");
+        String password = input.nextLine();
+
+        for (User user : users) {
+            if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
+                System.out.println("Välkommen " + user.getName());
+                return user;
             }
         }
-        return choice;
+
+        System.out.println("Fel email eller lösen");
+        return null;
     }
 
-    public int getSecondChoice(){
-        int choice = 0;
+    public int displayStudentMenu() {
         System.out.println("1. Visa betyg");
-        System.out.println("2. Logga ut");
-        while (choice == 0){
-            try{
-                Scanner input = new Scanner(System.in);
-                choice = input.nextInt();
-            }catch (Exception e){
-                throw new RuntimeException(e);
-            }
-        }
-        return choice;
+        System.out.println("2. Visa schema");
+        System.out.println("3. Visa veckobrev");
+        System.out.println("4. Visa klasslista");
+        System.out.println("5. Hantera frånvaro");
+        System.out.println("6. Logga ut");
+        return input.nextInt();
     }
 
-    public void printWelcomeMessage(){
-        System.out.println("Välkommen till superskolan, vad vill du göra?");
+
+    public int displayTeacherMenu() {
+        System.out.println("1. Sätt betyg");
+        System.out.println("2. Skriv veckobrev");
+        System.out.println("3. Rensa veckobrevet");
+        System.out.println("4. Visa klasslista");
+        System.out.println("5. Logga ut");
+        return input.nextInt();
     }
 
 }
-
 
