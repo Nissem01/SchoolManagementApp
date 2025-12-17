@@ -33,6 +33,7 @@ public class Run {
         return input.nextInt();
     }
 
+
     public int displayTeacherMenu() {
         System.out.println("1. Sätt betyg");
         System.out.println("2. Skriv veckobrev");
