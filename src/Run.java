@@ -28,15 +28,18 @@ public class Run {
         System.out.println("2. Visa schema");
         System.out.println("3. Visa veckobrev");
         System.out.println("4. Visa klasslista");
-        System.out.println("5. Logga ut");
+        System.out.println("5. Hantera frånvaro");
+        System.out.println("6. Logga ut");
         return input.nextInt();
     }
+
 
     public int displayTeacherMenu() {
         System.out.println("1. Sätt betyg");
         System.out.println("2. Skriv veckobrev");
-        System.out.println("3. Visa klasslista");
-        System.out.println("4. Logga ut");
+        System.out.println("3. Rensa veckobrevet");
+        System.out.println("4. Visa klasslista");
+        System.out.println("5. Logga ut");
         return input.nextInt();
     }
 

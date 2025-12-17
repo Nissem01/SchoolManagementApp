@@ -51,24 +51,32 @@ public class Teacher extends User{
 
     }
 
+    public void resetNewsLetter() {
+        File file = new File("src/WeeklyNewsLetter.txt");
+
+        try (PrintWriter writer = new PrintWriter(file)) {
+            System.out.println("Veckobrevet rensades");
+        } catch (FileNotFoundException e) {
+            System.out.println("Kunde inte rensa veckobrevet");
+        }
+    }
+
     public void writeNewsLetter() {
-        try (PrintWriter output = new PrintWriter(new File("WeeklyNewsLetter.txt"))) {
+        try (PrintWriter writer = new PrintWriter(new File("src/WeeklyNewsLetter.txt"))) {
             Scanner input = new Scanner(System.in);
             System.out.println("Skriv veckobrevet. Skriv exit för att sluta");
-            String text = "";
+
             while(true){
-                text = input.nextLine();
+                String text = input.nextLine();
                 if (text.equalsIgnoreCase("exit")){
                     break;
                 }
-                output.append(text);
+                writer.println(text);
             }
-
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-
     }
 
 }
