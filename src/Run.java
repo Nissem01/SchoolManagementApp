@@ -1,11 +1,12 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Run {
 
     private Scanner input = new Scanner(System.in);
 
-    public User login(ArrayList<User> users) {
+    public User login(List<User> users) {
         System.out.println("Email:");
         String email = input.nextLine();
 

@@ -1,8 +1,14 @@
+import java.util.HashMap;
+
 public class Course {
 
     private String courseName;
     private Teacher teacher;
     private HashMap<Student, Integer> grades = new HashMap<>();
+
+//    Course matte = new Course("Matte");
+//    Course engelska = new Course("Engelska");
+//    Course idrott = new Course("Idrott");
 
 
 

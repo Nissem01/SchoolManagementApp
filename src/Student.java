@@ -8,20 +8,25 @@ import java.util.Scanner;
 
 public class Student extends User{
 
+
     private SchoolClass schoolClass;
-
-    List<Course> courses = new ArrayList<Course>();
-
-
-    public Student(String name, String email, String password) {
-        super(name, email, password);
     private ArrayList<Grade> grades = new ArrayList<>();
     private ArrayList<Schedule> schedule = new ArrayList<>();
     private Scanner input = new Scanner(System.in);
     Absence absence = new Absence();
+//    List<Course> courses = new ArrayList<Course>();
+
+
+    public Student(String name, String email, String password) {
+        super(name, email, password);
+
+    }
+
 
     public Student(String name, String email, String password, SchoolClass schoolClass) {
-        super(name, email, password, schoolClass.getClassName());
+//        super(name, email, password, schoolClass.getClassName());
+        super(name, email, password);
+        this.schoolClass = schoolClass;
 
         for (Course course : schoolClass.getCourses()) {
             grades.add(new Grade(course));
@@ -30,7 +35,7 @@ public class Student extends User{
     }
 
     private void createSchedule(SchoolClass schoolClass){
-        ArrayList<Course> courses = schoolClass.getCourses();
+        List<Course> courses = schoolClass.getCourses();
 
         schedule.add(new Schedule("Måndag", "08:00", "09:30", courses.get(0)));
         schedule.add(new Schedule("Tisdag", "08:00", "09:30", courses.get(1)));
@@ -45,11 +50,13 @@ public class Student extends User{
         return schoolClass;
     }
 
-    public void viewGrades() {
+    public void viewGrades(Student student) {
         System.out.println("Betyg:");
-        for (Grade grade : grades) {
-            System.out.println(grade.getCourse().getCourseName() + ": " + grade.getGrade());
-        }
+
+
+//        for (Grade grade : grades) {
+//            System.out.println(grade.getCourse().getCourseName() + ": " + grade.getGrade());
+//        }
     }
 
 //    public void setGrade(String courseName, int newGrade) {
@@ -104,5 +111,9 @@ public class Student extends User{
             case 3:
                 break;
         }
+    }
+    @Override
+    public String toString() {
+        return "Student " + super.getName();
     }
 }
