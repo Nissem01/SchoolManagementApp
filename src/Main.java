@@ -22,7 +22,7 @@ public class Main {
         tvåan.addStudent(new Student("Pär", "p","3"));
         ettan.addStudent(new Student("Filip", "s","1"));
 
-        /* Jag ville testa logiken för per om han bytte klass men jag får ett error som att mailen inte finns
+        /* Jag ville testa logiken för per om han bytte klass men jag får ett error när jag loggar in som att mailen inte finns
          * Exception in thread "main" java.lang.NullPointerException: Cannot invoke "User.getEmail()" because "user" is null
          *at Run.login(Run.java:18)
          *at Main.main(Main.java:64)
@@ -63,11 +63,6 @@ public class Main {
             int choices = run.displayStartMenu();
             switch (choices) {
                 case 1:
-//                    break;
-//                case 2: i = 1;
-//
-//            }
-
 
             User loggedInUser = run.login(users);
             System.out.println(loggedInUser);

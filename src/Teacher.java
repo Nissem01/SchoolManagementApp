@@ -1,20 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-//import static jdk.internal.org.jline.utils.Colors.s;
 
 public class Teacher extends User{
 
     private List<Course> courses = new ArrayList<>();
-
-
 
     public Teacher(String name, String email, String password) {
         super(name, email, password);
@@ -55,6 +48,7 @@ public class Teacher extends User{
 //        selectedStudent.viewGrades();
 //
 //    }
+
     public void setGrades(Teacher teacher,List<Course> courses, List<User> users) {
 
         Scanner input = new Scanner(System.in);
@@ -85,7 +79,6 @@ public class Teacher extends User{
 
 //        selectedStudent.setGrade(courseName, grade);
         //kurs.setgrade(Student, grade)
-
 
 //        selectedStudent.viewGrades(student);
 
@@ -130,6 +123,7 @@ public class Teacher extends User{
         }
         return null;
     }
+
     public int setGradeInt(){
         System.out.println("Sätt betyg 1-5:");
         Scanner input = new Scanner(System.in);
@@ -137,15 +131,12 @@ public class Teacher extends User{
         return choice;
     }
 
-
-
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
     public void addCourse(Course course){
         courses.add(course);
     }
-
 
     public void viewClassList(SchoolClass s){
         List<Student> students = s.getStudents();
