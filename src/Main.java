@@ -19,8 +19,16 @@ public class Main {
         Teacher annika = new Teacher("Annika", "t","2");
         ettan.addStudent(new Student("Nils", "s","1"));
         ettan.addStudent(new Student("Jens", "s","1"));
-        ettan.addStudent(new Student("Pär", "s","1"));
+        tvåan.addStudent(new Student("Pär", "p","3"));
         ettan.addStudent(new Student("Filip", "s","1"));
+
+        /* Jag ville testa logiken för per om han bytte klass men jag får ett error som att mailen inte finns
+         * Exception in thread "main" java.lang.NullPointerException: Cannot invoke "User.getEmail()" because "user" is null
+         *at Run.login(Run.java:18)
+         *at Main.main(Main.java:64)
+         */
+
+
 //        System.out.println(ettan.getStudents());
 
 
