@@ -24,16 +24,6 @@ public class Main {
         Student pelle = new Student("Pelle", "p", "1");
         ettan.addStudent(pelle);
 
-        /* Jag ville testa logiken för per om han bytte klass men jag får ett error som att mailen inte finns
-         * Exception in thread "main" java.lang.NullPointerException: Cannot invoke "User.getEmail()" because "user" is null
-         *at Run.login(Run.java:18)
-         *at Main.main(Main.java:64)
-         */
-
-
-//        System.out.println(ettan.getStudents());
-
-
         Course matte = new Course("Matte");
         Course engelska = new Course("Engelska");
         Course idrott = new Course("Idrott");
