@@ -73,7 +73,7 @@ public class Main {
                 if (loggedInUser instanceof Student) {
                     Student student = (Student) loggedInUser;
 
-
+                SchoolClass schoolClass = (SchoolClass) schoolOfCode.get(i);
                 int choice = run.displayStudentMenu();
 
                     switch (choice) {
@@ -87,7 +87,7 @@ public class Main {
                             student.viewNewsLetter();
                             break;
                         case 4:
-                            student.viewClassList();
+                            student.viewClassList(schoolClass);
                             break;
                         case 5:
                             student.viewAbsence();
