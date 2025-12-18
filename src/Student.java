@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -5,22 +8,34 @@ import java.util.Scanner;
 
 public class Student extends User{
 
-    private ArrayList<Grade> grades = new ArrayList<>();
+
+    private SchoolClass schoolClass;
+
     private ArrayList<Schedule> schedule = new ArrayList<>();
     private Scanner input = new Scanner(System.in);
     Absence absence = new Absence();
+//    List<Course> courses = new ArrayList<Course>();
 
-    public Student(String name, String email, String password, SchoolClass schoolClass) {
-        super(name, email, password, schoolClass.getClassName());
 
-        for (Course course : schoolClass.getCourses()) {
-            grades.add(new Grade(course));
-        }
-        createSchedule(schoolClass);
+    public Student(String name, String email, String password) {
+        super(name, email, password);
+
     }
 
+
+//    public Student(String name, String email, String password, SchoolClass schoolClass) {
+////        super(name, email, password, schoolClass.getClassName());
+//        super(name, email, password);
+//        this.schoolClass = schoolClass;
+//
+//        for (Course course : schoolClass.getCourses()) {
+//            grades.add(new Grade(course));
+//        }
+//        createSchedule(schoolClass);
+//    }
+
     private void createSchedule(SchoolClass schoolClass){
-        ArrayList<Course> courses = schoolClass.getCourses();
+        List<Course> courses = schoolClass.getCourses();
 
         schedule.add(new Schedule("Måndag", "08:00", "09:30", courses.get(0)));
         schedule.add(new Schedule("Tisdag", "08:00", "09:30", courses.get(1)));
@@ -28,24 +43,33 @@ public class Student extends User{
         schedule.add(new Schedule("Torsdag", "09:00", "10:30",courses.get(0)));
         schedule.add(new Schedule("Fredag", "08:30", "10:00", courses.get(1)));
     }
+    public void setSchoolClass(SchoolClass schoolClass){
+        this.schoolClass = schoolClass ;
+    }
+    public SchoolClass getSchoolClass(){
+        return schoolClass;
+    }
 
-    public void viewGrades() {
+    public void viewGrades(Student student) {
         System.out.println("Betyg:");
-        for (Grade grade : grades) {
-            System.out.println(grade.getCourse().getCourseName() + ": " + grade.getGrade());
-        }
+
+
+
+//        for (Grade grade : grades) {
+//            System.out.println(grade.getCourse().getCourseName() + ": " + grade.getGrade());
+//        }
     }
 
-    public void setGrade(String courseName, int newGrade) {
-        for (Grade grade : grades) {
-            if (grade.getCourse().getCourseName().equalsIgnoreCase(courseName)) {
-                grade.setGrade(newGrade);
-                System.out.println("Betyg uppdaterat");
-                return;
-            }
-        }
-        System.out.println("Kursen kunde inte hittas!");
-    }
+//    public void setGrade(String courseName, int newGrade) {
+//        for (Grade grade : grades) {
+//            if (grade.getCourse().getCourseName().equalsIgnoreCase(courseName)) {
+//                grade.setGrade(newGrade);
+//                System.out.println("Betyg uppdaterat");
+//                return;
+//            }
+//        }
+//        System.out.println("Kursen kunde inte hittas!");
+//    }
 
     public void viewSchedule() {
         System.out.println("\n=== Veckoschema ===\n");
@@ -60,6 +84,7 @@ public class Student extends User{
     public void viewClassList(){
 
     }
+
 
     public void viewNewsLetter() {
         File file = new File("src/WeeklyNewsLetter.txt");
@@ -87,5 +112,9 @@ public class Student extends User{
             case 3:
                 break;
         }
+    }
+    @Override
+    public String toString() {
+        return "Student " + super.getName();
     }
 }

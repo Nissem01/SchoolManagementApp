@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -6,19 +7,54 @@ public class Main {
 
         Run run = new Run();
 
-        SchoolClass A = new SchoolClass("A");
+        List<SchoolClass> schoolOfCode = new ArrayList<>();
 
-        A.addCourse(new Course("Matematik"));
-        A.addCourse(new Course("Engelska"));
-        A.addCourse(new Course("Svenska"));
+
+        SchoolClass ettan =new SchoolClass("Ettan");
+        SchoolClass tvåan =new SchoolClass("Tvåan");
+        schoolOfCode.add(ettan);
+        schoolOfCode.add(tvåan);
+
+
+
+        Teacher klas = new Teacher("klas", "klasse@themail.com", "jensÄrBäst!");
+        Teacher annika = new Teacher("Annika", "t","2");
+        ettan.addStudent(new Student("Nils", "s","1"));
+        ettan.addStudent(new Student("Jens", "s","1"));
+        ettan.addStudent(new Student("Pär", "s","1"));
+        ettan.addStudent(new Student("Filip", "s","1"));
+//        System.out.println(ettan.getStudents());
+
+
+//        A.addCourse(new Course("Matematik"));
+//        A.addCourse(new Course("Engelska"));
+//        A.addCourse(new Course("Svenska"));
+        Course matte = new Course("Matte");
+        Course engelska = new Course("Engelska");
+        ettan.addCourse(matte);
+        ettan.addCourse(engelska);
+        matte.setTeacher(annika);
+//        System.out.println(annika.getCourses());
+
+//        Course idrott = new Course("Idrott");
 
         //fake databas
-        ArrayList<User> users = new ArrayList<>();
-        users.add(new Student("Nils", "s", "1", A));  // Varför är schoolclass olika här? L
-        users.add(new Teacher("Annika", "t", "2", "A"));
+        List<User> users = new ArrayList<>();
+        for (Student student : ettan.getStudents()) {
+            users.add(student);
+            System.out.println(student);
+        }
+        users.add(matte.getTeacher());
+        users.add(engelska.getTeacher());
+        System.out.println(users.size());
+        System.out.println(users.get(0) +" "+  users.get(1));
+//        users.add(new Student("Nils", "s", "1"));
+//        users.add(new Teacher("Annika", "t", "2", "A"));
+//        users.add(new Teacher("Annika", "t", "2"));
 
 
         User loggedInUser = run.login(users);
+        System.out.println(loggedInUser);
 
         while (loggedInUser == null) {
             loggedInUser = run.login(users);
@@ -28,11 +64,13 @@ public class Main {
 
             if(loggedInUser instanceof Student){
                 Student student = (Student) loggedInUser;
+
+
                 int choice = run.displayStudentMenu();
 
                 switch(choice) {
                     case 1:
-                        student.viewGrades();
+                        student.viewGrades(student);
                         break;
                     case 2:
                         student.viewSchedule();
@@ -55,11 +93,27 @@ public class Main {
 
             if(loggedInUser instanceof Teacher){
                 Teacher teacher = (Teacher) loggedInUser;
+                List<Course> courses = teacher.getCourses();
+                Course choosenCourse;
+                SchoolClass choosenclass;
+                List<Student> choosenstudents;
+                Student studentToGrade;
                 int choice = run.displayTeacherMenu();
 
                 switch(choice) {
                     case 1:
-                        teacher.setGrades(users);
+                        choosenCourse=teacher.getActiveCourses(courses);
+                        choosenclass=teacher.chooseSchoolClass(schoolOfCode);
+                        choosenstudents = choosenclass.getStudents();
+                        studentToGrade=teacher.chooseStudentToGrade(choosenstudents);
+                        int grade = teacher.setGradeInt();
+                        choosenCourse.setGrades(studentToGrade,grade);
+                        System.out.println(choosenCourse.getGrades(studentToGrade));
+
+                        System.out.println(studentToGrade+"s Betyg i " + choosenCourse + " är satt till: "+ choosenCourse.getGrades(studentToGrade));
+
+//                        teacher.setGrades(teacher,courses,users);
+//                        teacher.setGrades(users);
                         break;
                     case 2:
                         teacher.writeNewsLetter();
