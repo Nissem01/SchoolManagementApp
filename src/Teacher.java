@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//import static jdk.internal.org.jline.utils.Colors.s;
+
 public class Teacher extends User{
 
     private List<Course> courses = new ArrayList<>();
@@ -90,66 +92,32 @@ public class Teacher extends User{
     }
     public SchoolClass chooseSchoolClass(List<SchoolClass> s){
         System.out.println("Välj klass");
-        int count = 1;
-        for (SchoolClass c : s) {
-            if (count == 1) {
-                count++;
-                System.out.println("1. " + c);
-            } else if (count == 2) {
-                count++;
-                System.out.println("2. " + c);
-            } else if (count == 3) {
-                count++;
-                System.out.println("3. " + c);
-            }
+        for(int i  = 0; i < s.size(); i++){
+            System.out.println((i+1) + ". " + s.get(i).getSchoolName());
         }
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
-        switch (choice) {
-            case 1:
-                System.out.println(s.get(0));
-                return s.get(0);
-            case 2:
-                return s.get(1);
-            case 3:
-                return s.get(2);
-
-
+        if(choice >= 1 && choice <= s.size()){
+            SchoolClass x = s.get(choice-1);
+            return x;
         }
         return null;
 
-
     }
-    public Course getActiveCourses(List<Course> courses){
+    public Course getActiveCourses(List<Course> c){
         System.out.println("Välj kurs");
-        int count = 1;
-        for (Course c : courses) {
-            if (count == 1) {
-                count++;
-                System.out.println("1. " + c);
-            } else if (count == 2) {
-                count++;
-                System.out.println("2. " + c);
-            } else if (count == 3) {
-                count++;
-                System.out.println("3. " + c);
-            }
+        for(int i  = 0; i < c.size(); i++){
+            System.out.println((i+1) + ". " + c.get(i).getCourseName());
         }
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
-        switch (choice) {
-            case 1:
-                System.out.println(courses.get(0));
-                return courses.get(0);
-            case 2:
-                return courses.get(1);
-            case 3:
-                return courses.get(2);
-
-
+        if(choice >= 1 && choice <= c.size()){
+            Course x = c.get(choice-1);
+            return x;
         }
         return null;
     }
+
     public Student chooseStudentToGrade(List<Student> s){
         for(int i  = 0; i < s.size(); i++){
             System.out.println((i+1) + ". " + s.get(i).getName());
@@ -178,16 +146,18 @@ public class Teacher extends User{
         courses.add(course);
     }
 
-//    public void setGrades(Student a, String kurs, String grades) {
-//        a.updateGrades(a,kurs,grades);
-//    }
 
+    public void viewClassList(SchoolClass s){
+        List<Student> students = s.getStudents();
+        System.out.println();
+        System.out.println("Klass " + s.getSchoolName());
+        for(int i  = 0; i < students.size(); i++){
+            System.out.println((i+1) + ". " + students.get(i).getName() +
+                    " Mail: " + students.get(i).getEmail());
+        }
 
-
-
-
-
-    public void viewClassList(){
+        System.out.println();
+        System.out.println();
 
     }
 

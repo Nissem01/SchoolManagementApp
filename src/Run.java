@@ -7,6 +7,7 @@ public class Run {
     private Scanner input = new Scanner(System.in);
 
     public User login(List<User> users) {
+        input.nextLine();
         System.out.println("Email:");
         String email = input.nextLine();
 
@@ -22,6 +23,12 @@ public class Run {
 
         System.out.println("Fel email eller lösen");
         return null;
+    }
+    public int displayStartMenu() {
+        System.out.println("==| Bästa Skolan |===");
+        System.out.println("1. Logga in");
+        System.out.println("2. Stäng av");
+        return input.nextInt();
     }
 
     public int displayStudentMenu() {

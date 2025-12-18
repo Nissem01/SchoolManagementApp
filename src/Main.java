@@ -19,10 +19,19 @@ public class Main {
         Teacher annika = new Teacher("Annika", "t","2");
         ettan.addStudent(new Student("Nils", "s","1"));
         ettan.addStudent(new Student("Jens", "s","1"));
-        ettan.addStudent(new Student("Pär", "s","1"));
+        tvåan.addStudent(new Student("Pär", "p","3"));
         ettan.addStudent(new Student("Filip", "s","1"));
         Student pelle = new Student("Pelle", "p","1");
         ettan.addStudent(pelle);
+
+        /* Jag ville testa logiken för per om han bytte klass men jag får ett error som att mailen inte finns
+         * Exception in thread "main" java.lang.NullPointerException: Cannot invoke "User.getEmail()" because "user" is null
+         *at Run.login(Run.java:18)
+         *at Main.main(Main.java:64)
+         */
+
+
+//        System.out.println(ettan.getStudents());
 
 
         Course matte = new Course("Matte");
@@ -47,6 +56,17 @@ public class Main {
         users.add(engelska.getTeacher());
 
 
+        int i = 0;
+        while (i <= 0) {
+
+            int choices = run.displayStartMenu();
+            switch (choices) {
+                case 1:
+//                    break;
+//                case 2: i = 1;
+//
+//            }
+
 
         User loggedInUser = run.login(users);
 //        System.out.println(loggedInUser);
@@ -60,7 +80,7 @@ public class Main {
             if(loggedInUser instanceof Student){
                 Student student = (Student) loggedInUser;
                 List<Course> courses= student.getSchoolClass().getCourses();
-
+                SchoolClass schoolClass = (SchoolClass) schoolOfCode.get(i);
                 int choice = run.displayStudentMenu();
 
                 switch(choice) {
@@ -74,7 +94,7 @@ public class Main {
                         student.viewNewsLetter();
                         break;
                     case 4:
-                        student.viewClassList();
+                        student.viewClassList(schoolClass);
                         break;
                     case 5:
                         student.viewAbsence();
@@ -86,14 +106,14 @@ public class Main {
                 }
             }
 
-            if(loggedInUser instanceof Teacher){
-                Teacher teacher = (Teacher) loggedInUser;
-                List<Course> courses = teacher.getCourses();
-                Course choosenCourse;
-                SchoolClass choosenclass;
-                List<Student> choosenstudents;
-                Student studentToGrade;
-                int choice = run.displayTeacherMenu();
+                if (loggedInUser instanceof Teacher) {
+                    Teacher teacher = (Teacher) loggedInUser;
+                    List<Course> courses = teacher.getCourses();
+                    Course choosenCourse;
+                    SchoolClass choosenclass;
+                    List<Student> choosenstudents;
+                    Student studentToGrade;
+                    int choice = run.displayTeacherMenu();
 
                 switch(choice) {
                     case 1:
@@ -117,13 +137,17 @@ public class Main {
                         teacher.resetNewsLetter();
                         break;
                     case 4:
-                        teacher.viewClassList();
+                        choosenclass = teacher.chooseSchoolClass(schoolOfCode);
+                        teacher.viewClassList(choosenclass);
                         break;
                     case 5:
                         System.out.println("Du loggar ut!");
                         loggedInUser = null;
                         break;
                 }
+            }
+                break;
+                case 2: i = 1;
             }
         }
     }

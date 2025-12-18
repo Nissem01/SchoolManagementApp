@@ -71,8 +71,17 @@ public class Student extends User{
         }
     }
 
-    public void viewClassList(){
+    public void viewClassList (SchoolClass s){
+        List<Student> students = s.getStudents();
+        System.out.println();
+        System.out.println("Klass " + s.getSchoolName());
+        for(int i  = 0; i < students.size(); i++){
+            System.out.println((i+1) + ". " + students.get(i).getName()
+//                 +   " Mail: " + students.get(i).getEmail()   // Ska elever få tag i varandras mail?
+                 );}
 
+        System.out.println();
+        System.out.println();
     }
 
 
@@ -94,10 +103,10 @@ public class Student extends User{
 //        return input.nextInt();
         switch (input.nextInt()){
             case 1:
-                absence.reportAbsence();
+                absence.reportAbsence(Student.this);
                 break;
             case 2:
-                absence.checkAbsence();
+                absence.checkAbsence(Student.this);
                 break;
             case 3:
                 break;
