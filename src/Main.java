@@ -118,7 +118,7 @@ public class Main {
                             choosenCourse.setGrades(studentToGrade, grade);
                             System.out.println(choosenCourse.getGrades(studentToGrade));
 
-                            System.out.println(studentToGrade + "s Betyg i " + choosenCourse + " är satt till: " + choosenCourse.getGrades(studentToGrade));
+                            System.out.println(studentToGrade + "´s Betyg i " + choosenCourse + " är satt till: " + choosenCourse.getGrades(studentToGrade));
 
 //                        teacher.setGrades(teacher,courses,users);
 //                        teacher.setGrades(users);
@@ -130,7 +130,8 @@ public class Main {
                             teacher.resetNewsLetter();
                             break;
                         case 4:
-                            teacher.viewClassList();
+                            choosenclass = teacher.chooseSchoolClass(schoolOfCode);
+                            teacher.viewClassList(choosenclass);
                             break;
                         case 5:
                             System.out.println("Du loggar ut!");
@@ -138,7 +139,6 @@ public class Main {
                             break;
                     }
                 }
-
             }
                 break;
                 case 2: i = 1;
