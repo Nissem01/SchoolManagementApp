@@ -27,9 +27,10 @@ public class Main {
 
         Course matte = new Course("Matte");
         Course engelska = new Course("Engelska");
-//        Course idrott = new Course("Idrott");
+        Course idrott = new Course("Idrott");
         ettan.addCourse(matte);
         ettan.addCourse(engelska);
+        ettan.addCourse(idrott);
         matte.setTeacher(annika);
         matte.setGrades(pelle, 1);
         engelska.setGrades(pelle,3);

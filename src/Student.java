@@ -24,7 +24,7 @@ public class Student extends User{
 
 
 //    public Student(String name, String email, String password, SchoolClass schoolClass) {
-////        super(name, email, password, schoolClass.getClassName());
+//      super(name, email, password, schoolClass.getClassName());
 //        super(name, email, password);
 //        this.schoolClass = schoolClass;
 //
@@ -60,6 +60,8 @@ public class Student extends User{
 
 
     public void viewSchedule() {
+        createSchedule(schoolClass);
+
         System.out.println("\n=== Veckoschema ===\n");
 
         for (Schedule s : schedule){
