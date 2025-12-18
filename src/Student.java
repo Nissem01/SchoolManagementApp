@@ -10,7 +10,7 @@ public class Student extends User{
 
 
     private SchoolClass schoolClass;
-    private ArrayList<Grade> grades = new ArrayList<>();
+
     private ArrayList<Schedule> schedule = new ArrayList<>();
     private Scanner input = new Scanner(System.in);
     Absence absence = new Absence();
@@ -23,16 +23,16 @@ public class Student extends User{
     }
 
 
-    public Student(String name, String email, String password, SchoolClass schoolClass) {
-//        super(name, email, password, schoolClass.getClassName());
-        super(name, email, password);
-        this.schoolClass = schoolClass;
-
-        for (Course course : schoolClass.getCourses()) {
-            grades.add(new Grade(course));
-        }
-        createSchedule(schoolClass);
-    }
+//    public Student(String name, String email, String password, SchoolClass schoolClass) {
+////        super(name, email, password, schoolClass.getClassName());
+//        super(name, email, password);
+//        this.schoolClass = schoolClass;
+//
+//        for (Course course : schoolClass.getCourses()) {
+//            grades.add(new Grade(course));
+//        }
+//        createSchedule(schoolClass);
+//    }
 
     private void createSchedule(SchoolClass schoolClass){
         List<Course> courses = schoolClass.getCourses();
