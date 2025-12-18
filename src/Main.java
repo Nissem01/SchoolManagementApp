@@ -7,15 +7,13 @@ public class Main {
 
         Run run = new Run();
 
+        //fake databas
         List<SchoolClass> schoolOfCode = new ArrayList<>();
-
 
         SchoolClass ettan =new SchoolClass("Ettan");
         SchoolClass tvåan =new SchoolClass("Tvåan");
         schoolOfCode.add(ettan);
         schoolOfCode.add(tvåan);
-
-
 
         Teacher klas = new Teacher("klas", "klasse@themail.com", "jensÄrBäst!");
         Teacher annika = new Teacher("Annika", "t","2");
@@ -23,34 +21,27 @@ public class Main {
         ettan.addStudent(new Student("Jens", "s","1"));
         ettan.addStudent(new Student("Pär", "s","1"));
         ettan.addStudent(new Student("Filip", "s","1"));
-//        System.out.println(ettan.getStudents());
+        Student pelle = new Student("Pelle", "p","1");
+        ettan.addStudent(pelle);
 
 
-//        A.addCourse(new Course("Matematik"));
-//        A.addCourse(new Course("Engelska"));
-//        A.addCourse(new Course("Svenska"));
         Course matte = new Course("Matte");
         Course engelska = new Course("Engelska");
+//        Course idrott = new Course("Idrott");
         ettan.addCourse(matte);
         ettan.addCourse(engelska);
         matte.setTeacher(annika);
-//        System.out.println(annika.getCourses());
+        matte.setGrades(pelle, 1);
+        engelska.setGrades(pelle,3);
 
-//        Course idrott = new Course("Idrott");
-
-        //fake databas
         List<User> users = new ArrayList<>();
         for (Student student : ettan.getStudents()) {
             users.add(student);
-            System.out.println(student);
+//            System.out.println(student);
         }
         users.add(matte.getTeacher());
         users.add(engelska.getTeacher());
-        System.out.println(users.size());
-        System.out.println(users.get(0) +" "+  users.get(1));
-//        users.add(new Student("Nils", "s", "1"));
-//        users.add(new Teacher("Annika", "t", "2", "A"));
-//        users.add(new Teacher("Annika", "t", "2"));
+
 
 
         User loggedInUser = run.login(users);
@@ -64,13 +55,13 @@ public class Main {
 
             if(loggedInUser instanceof Student){
                 Student student = (Student) loggedInUser;
-
+                List<Course> courses= student.getSchoolClass().getCourses();
 
                 int choice = run.displayStudentMenu();
 
                 switch(choice) {
                     case 1:
-                        student.viewGrades(student);
+                        student.viewGrades(courses,student);
                         break;
                     case 2:
                         student.viewSchedule();

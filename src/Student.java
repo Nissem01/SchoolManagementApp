@@ -50,8 +50,13 @@ public class Student extends User{
         return schoolClass;
     }
 
-    public void viewGrades(Student student) {
-        System.out.println("Betyg:");
+    public void viewGrades(List<Course> c,Student s) {
+        for (int i = 0; i <c.size() ; i++) {
+            Course p = c.get(i);
+            System.out.println(p.getCourseName()+" "+p.getGrades(s));
+
+        }
+//        System.out.println("Betyg:");
 
 
 
