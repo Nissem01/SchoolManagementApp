@@ -39,13 +39,16 @@ public class Main {
             users.add(student);
 //            System.out.println(student);
         }
+        for (Student student: tvåan.getStudents()){
+            users.add(student);
+        }
         users.add(matte.getTeacher());
         users.add(engelska.getTeacher());
 
 
 
         User loggedInUser = run.login(users);
-        System.out.println(loggedInUser);
+//        System.out.println(loggedInUser);
 
         while (loggedInUser == null) {
             loggedInUser = run.login(users);

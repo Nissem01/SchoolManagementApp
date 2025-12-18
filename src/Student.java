@@ -51,30 +51,13 @@ public class Student extends User{
     }
 
     public void viewGrades(List<Course> c,Student s) {
-        for (int i = 0; i <c.size() ; i++) {
+        for (int i = 0; i < c.size(); i++) {
             Course p = c.get(i);
-            System.out.println(p.getCourseName()+" "+p.getGrades(s));
+            System.out.println(p.getCourseName() + " " + p.getGrades(s));
 
         }
-//        System.out.println("Betyg:");
-
-
-
-//        for (Grade grade : grades) {
-//            System.out.println(grade.getCourse().getCourseName() + ": " + grade.getGrade());
-//        }
     }
 
-//    public void setGrade(String courseName, int newGrade) {
-//        for (Grade grade : grades) {
-//            if (grade.getCourse().getCourseName().equalsIgnoreCase(courseName)) {
-//                grade.setGrade(newGrade);
-//                System.out.println("Betyg uppdaterat");
-//                return;
-//            }
-//        }
-//        System.out.println("Kursen kunde inte hittas!");
-//    }
 
     public void viewSchedule() {
         System.out.println("\n=== Veckoschema ===\n");
