@@ -1,16 +1,18 @@
+import java.util.List;
+
 public class UserFactory {
 
-    public enum UserType {
-        STUDENT,
-        TEACHER
-    }
-
-    public static User createUser(UserType type, String name, String email, String password) {
+    public static User createUser(List<User> users, UserType type, String name, String email, String password, SchoolClass schoolClass) {
         switch(type) {
             case STUDENT:
-                return new Student(name, email, password);
+                Student tempStudent = new Student(name, email, password, schoolClass);
+                schoolClass.addStudent(tempStudent);
+                users.add(tempStudent);
+                return tempStudent;
             case TEACHER:
-                return new Teacher(name, email, password);
+                Teacher tempTeacher = new Teacher(name, email, password);
+                users.add(tempTeacher);
+                return tempTeacher;
                 default:
                     throw new IllegalArgumentException("Kunde inte hitta användartypen");
         }

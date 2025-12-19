@@ -9,48 +9,29 @@ public class Main {
 
         //fake databas
         List<SchoolClass> schoolOfCode = new ArrayList<>();
+        List<User> users = new ArrayList<>();
 
         SchoolClass ettan = new SchoolClass("Ettan");
         SchoolClass tvåan = new SchoolClass("Tvåan");
         schoolOfCode.add(ettan);
         schoolOfCode.add(tvåan);
 
-        Teacher klas = (Teacher) UserFactory.createUser(UserFactory.UserType.TEACHER,"Klas", "klasse@themail.com", "jensÄrBäst!");
-        Teacher annika = (Teacher) UserFactory.createUser(UserFactory.UserType.TEACHER,"Annika", "t", "2");
-        Student nils = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Nils", "s", "1");
-        Student pär = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Pär", "pe", "3");
-        Student jens = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Jens", "s", "1");
-        Student filip = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Filip", "s", "1");
-        Student pelle = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Pelle", "p", "1");
+        Teacher klas = (Teacher) UserFactory.createUser(users, UserType.TEACHER,"Klas", "klasse@themail.com", "jensÄrBäst!", ettan);
+        Teacher annika = (Teacher) UserFactory.createUser(users, UserType.TEACHER,"Annika", "t", "2", ettan);
+        UserFactory.createUser(users, UserType.STUDENT, "Nils", "s", "1", ettan);
+        UserFactory.createUser(users, UserType.STUDENT, "Pär", "pe", "3", tvåan);
+        UserFactory.createUser(users, UserType.STUDENT, "Jens", "s", "1",ettan);
+        UserFactory.createUser(users, UserType.STUDENT, "Filip", "s", "1", ettan);
 
-        ettan.addStudent(nils);
-        ettan.addStudent(jens);
-        tvåan.addStudent(pär);
-        ettan.addStudent(filip);
-        ettan.addStudent(pelle);
+        //bara för att hårdkoda betyget som ett exempel
+        Student pelle = (Student) UserFactory.createUser(users, UserType.STUDENT, "Pelle", "p", "1", ettan);
 
-        Course matte = CourseFactory.createCourse("Matte", annika);
-        Course engelska =  CourseFactory.createCourse("English", annika);
-        Course idrott = CourseFactory.createCourse("Idrott", annika);
-
-        ettan.addCourse(matte);
-        ettan.addCourse(engelska);
-        ettan.addCourse(idrott);
+        Course matte = CourseFactory.createCourse("matte", annika, ettan);
+        Course engelska = CourseFactory.createCourse("engelska", annika, ettan);
+        CourseFactory.createCourse("idrott", annika, ettan);
 
         matte.setGrades(pelle, 1);
         engelska.setGrades(pelle, 3);
-
-        List<User> users = new ArrayList<>();
-        for (Student student : ettan.getStudents()) {
-            users.add(student);
-
-        }
-        for (Student student : tvåan.getStudents()) {
-            users.add(student);
-        }
-        users.add(matte.getTeacher());
-        users.add(engelska.getTeacher());
-
 
         int i = 0;
         while (i <= 0) {
