@@ -6,9 +6,7 @@ public class SchoolClass {
     private List<Student> students = new ArrayList<>();
     private List<Course> courses = new ArrayList<>();
 
-//    public SchoolClass(String schoolName) {
-//        this.schoolName = schoolName;
-//    }
+
     public SchoolClass(String schoolName) {
         this.schoolName = schoolName;
         this.students = students;
@@ -16,7 +14,6 @@ public class SchoolClass {
     }
 
     public SchoolClass() {
-
     }
 
     public void addStudent(Student student){
@@ -25,7 +22,6 @@ public class SchoolClass {
     }
     public void addCourse(Course course){
         courses.add(course);
-
     }
 
     public List<Student> getStudents(){
@@ -43,7 +39,6 @@ public class SchoolClass {
     public List<Course> getCourses() {
         return courses;
     }
-
     public String  toString(){
         return schoolName;
     }

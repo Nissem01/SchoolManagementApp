@@ -6,11 +6,6 @@ public class Course {
     private Teacher teacher;
     private HashMap<Student, Integer> grades = new HashMap<>();
 
-//    Course matte = new Course("Matte");
-//    Course engelska = new Course("Engelska");
-//    Course idrott = new Course("Idrott");
-
-
 
     public Course() {
 

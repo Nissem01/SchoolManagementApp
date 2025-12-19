@@ -18,20 +18,17 @@ public class Absence {
                 "2. Se frånvaro");
         return input.nextInt();
     }
-    public void reportAbsence (){
+    public void reportAbsence (Student s){
         System.out.println("Skriv in datum för dagen du är frånvarande");
-        date = input.nextLine();
+        date = input.nextLine()+" " + s.getName();
         System.out.println(date + " Stämmer det? j/n");
         if (input.nextLine().equals("j")) {
             dates.add(date);
-
-        } else return;
+        }
     }
 
-    public void checkAbsence (){
-//        String name = student.getName();
-        System.out.println("Du har vart frånvarande följande dagar" + dates
-//                + name
-        );
+    public void checkAbsence (Student s){
+        String name = s.getName();
+        System.out.println("Du har vart frånvarande följande dagar" + dates);
     }
 }
