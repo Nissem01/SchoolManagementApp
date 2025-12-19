@@ -20,7 +20,7 @@ public class Absence {
     }
     public void reportAbsence (Student s){
         System.out.println("Skriv in datum för dagen du är frånvarande");
-        date = input.nextLine() + s.getName();
+        date = input.nextLine()+" " + s.getName();
         System.out.println(date + " Stämmer det? j/n");
         if (input.nextLine().equals("j")) {
             dates.add(date);
@@ -30,8 +30,6 @@ public class Absence {
 
     public void checkAbsence (Student s){
         String name = s.getName();
-        System.out.println("Du har vart frånvarande följande dagar" + dates
-                + name
-        );
+        System.out.println("Du har vart frånvarande följande dagar" + dates);
     }
 }

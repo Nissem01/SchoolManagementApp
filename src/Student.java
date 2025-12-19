@@ -10,30 +10,13 @@ public class Student extends User{
 
 
     private SchoolClass schoolClass;
-
     private ArrayList<Schedule> schedule = new ArrayList<>();
     private Scanner input = new Scanner(System.in);
-    Absence absence = new Absence();
-//    List<Course> courses = new ArrayList<Course>();
-
+    private Absence absence = new Absence();
 
     public Student(String name, String email, String password) {
         super(name, email, password);
-
     }
-
-
-//    public Student(String name, String email, String password, SchoolClass schoolClass) {
-//      super(name, email, password, schoolClass.getClassName());
-//        super(name, email, password);
-//        this.schoolClass = schoolClass;
-//
-//        for (Course course : schoolClass.getCourses()) {
-//            grades.add(new Grade(course));
-//        }
-//        createSchedule(schoolClass);
-//    }
-
     private void createSchedule(SchoolClass schoolClass){
         List<Course> courses = schoolClass.getCourses();
 
@@ -49,21 +32,15 @@ public class Student extends User{
     public SchoolClass getSchoolClass(){
         return schoolClass;
     }
-
     public void viewGrades(List<Course> c,Student s) {
         for (int i = 0; i < c.size(); i++) {
             Course p = c.get(i);
             System.out.println(p.getCourseName() + " " + p.getGrades(s));
-
         }
     }
-
-
     public void viewSchedule() {
         createSchedule(schoolClass);
-
         System.out.println("\n=== Veckoschema ===\n");
-
         for (Schedule s : schedule){
             System.out.println(s.getDay() + ":");
             System.out.println(s.getStartTime() + "-" + s.getEndTime() + " " + s.getCourse().getCourseName());
@@ -77,7 +54,7 @@ public class Student extends User{
         System.out.println("Klass " + s.getSchoolName());
         for(int i  = 0; i < students.size(); i++){
             System.out.println((i+1) + ". " + students.get(i).getName()
-//                 +   " Mail: " + students.get(i).getEmail()   // Ska elever få tag i varandras mail?
+                 +   " Mail: " + students.get(i).getEmail()   // Ska elever få tag i varandras mail?
                  );}
 
         System.out.println();
@@ -100,7 +77,6 @@ public class Student extends User{
     public void viewAbsence (){
         System.out.println("1. Fyll i frånvaro\n" +
                 "2. Se frånvaro");
-//        return input.nextInt();
         switch (input.nextInt()){
             case 1:
                 absence.reportAbsence(Student.this);
