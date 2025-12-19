@@ -52,10 +52,7 @@ public class Main {
             int choices = run.displayStartMenu();
             switch (choices) {
                 case 1:
-//                    break;
-//                case 2: i = 1;
-//
-//            }
+
 
 
                     User loggedInUser = run.login(users);
