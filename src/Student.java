@@ -11,7 +11,7 @@ public class Student extends User{
     private Scanner input = new Scanner(System.in);
     private Absence absence = new Absence();
 
-    Absence absence = new Absence();
+//    Absence absence = new Absence();
 //    List<Course> courses = new ArrayList<Course>();
 
     public Student(String name, String email, String password) {
@@ -74,6 +74,7 @@ public class Student extends User{
     }
 
     public void viewAbsence (){
+//        absence.menu();
         System.out.println("1. Fyll i frånvaro\n" +
                 "2. Se frånvaro");
         switch (input.nextInt()){

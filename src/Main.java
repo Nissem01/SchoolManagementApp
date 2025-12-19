@@ -54,8 +54,6 @@ public class Main {
             switch (choices) {
                 case 1:
                     User loggedInUser = run.login(users);
-
-            User loggedInUser = run.login(users);
             System.out.println(loggedInUser);
 
                     while (loggedInUser == null) {
