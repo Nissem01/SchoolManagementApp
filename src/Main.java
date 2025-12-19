@@ -65,7 +65,7 @@ public class Main {
                             Student student = (Student) loggedInUser;
                             List<Course> courses = student.getSchoolClass().getCourses();
                             SchoolClass schoolClass = student.getSchoolClass();
-                            System.out.println(schoolClass);
+
                             int choice = run.displayStudentMenu();
 
                             switch (choice) {
