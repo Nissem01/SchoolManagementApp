@@ -24,6 +24,7 @@ public class Main {
         Student pelle = new Student("Pelle", "p", "1");
         ettan.addStudent(pelle);
 
+
         Course matte = new Course("Matte");
         Course engelska = new Course("Engelska");
         Course idrott = new Course("Idrott");
@@ -37,7 +38,7 @@ public class Main {
         List<User> users = new ArrayList<>();
         for (Student student : ettan.getStudents()) {
             users.add(student);
-//            System.out.println(student);
+
         }
         for (Student student : tvåan.getStudents()) {
             users.add(student);
@@ -52,11 +53,7 @@ public class Main {
             int choices = run.displayStartMenu();
             switch (choices) {
                 case 1:
-
-
-
                     User loggedInUser = run.login(users);
-//        System.out.println(loggedInUser);
 
                     while (loggedInUser == null) {
                         loggedInUser = run.login(users);
@@ -68,7 +65,6 @@ public class Main {
                             Student student = (Student) loggedInUser;
                             List<Course> courses = student.getSchoolClass().getCourses();
                             SchoolClass schoolClass = student.getSchoolClass();
-//                            SchoolClass schoolClass = (SchoolClass) schoolOfCode.get(i);
                             System.out.println(schoolClass);
                             int choice = run.displayStudentMenu();
 
@@ -116,8 +112,6 @@ public class Main {
 
                                     System.out.println(studentToGrade + "s Betyg i " + choosenCourse + " är satt till: " + choosenCourse.getGrades(studentToGrade));
 
-//                        teacher.setGrades(teacher,courses,users);
-//                        teacher.setGrades(users);
                                     break;
                                 case 2:
                                     teacher.writeNewsLetter();
@@ -134,12 +128,7 @@ public class Main {
                                     loggedInUser = null;
                                     break;
                             }
-
                         }
-
-
-
-
                     }
                     break;
                 case 2:   i = 1;

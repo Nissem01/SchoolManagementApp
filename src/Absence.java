@@ -24,8 +24,7 @@ public class Absence {
         System.out.println(date + " Stämmer det? j/n");
         if (input.nextLine().equals("j")) {
             dates.add(date);
-
-        } else return;
+        }
     }
 
     public void checkAbsence (Student s){

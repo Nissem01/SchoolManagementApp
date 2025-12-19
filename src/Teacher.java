@@ -1,20 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-//import static jdk.internal.org.jline.utils.Colors.s;
 
 public class Teacher extends User{
 
     private List<Course> courses = new ArrayList<>();
-
-
 
     public Teacher(String name, String email, String password) {
         super(name, email, password);
@@ -24,72 +17,7 @@ public class Teacher extends User{
     public List<Course> getCourses() {
         return courses;
     }
-//    public void setGrades(ArrayList<User> users) {
-//        Scanner input = new Scanner(System.in);
-//
-//        System.out.println("Ange studentens namn");
-//        String studentName = input.nextLine();
-//
-//        Student selectedStudent = null;
-//        for (User user : users) {
-//            if (user instanceof Student && user.getName().equalsIgnoreCase(studentName)) {
-//                selectedStudent = (Student) user;
-//                break;
-//            }
-//        }
-//        if (selectedStudent == null){
-//            System.out.println("Studenten hittades inte");
-//            return;
-//        }    selectedStudent.viewGrades();
-//
-//        System.out.println("Ange kurs:");
-//
-//        String courseName = input.nextLine();
-//
-//        System.out.println("Ange betyg:");
-//
-//        int grade = input.nextInt();
-//
-//        selectedStudent.setGrade(courseName, grade);
-//
-//        selectedStudent.viewGrades();
-//
-//    }
-    public void setGrades(Teacher teacher,List<Course> courses, List<User> users) {
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Ange studentens namn");
-        String studentName = input.nextLine();
-
-        Student selectedStudent = null;
-        for (User user : users) {
-            if (user instanceof Student && user.getName().equalsIgnoreCase(studentName)) {
-                selectedStudent = (Student) user;
-                break;
-            }
-        }
-        if (selectedStudent == null){
-            System.out.println("Studenten hittades inte");
-            return;
-        }
-//        course
-//        selectedStudent.viewGrades();
-
-        System.out.println("Ange kurs:");
-
-        String courseName = input.nextLine();
-
-        System.out.println("Ange betyg:");
-
-        int grade = input.nextInt();
-
-//        selectedStudent.setGrade(courseName, grade);
-        //kurs.setgrade(Student, grade)
-
-
-//        selectedStudent.viewGrades(student);
-
-    }
     public SchoolClass chooseSchoolClass(List<SchoolClass> s){
         System.out.println("Välj klass");
         for(int i  = 0; i < s.size(); i++){
@@ -136,8 +64,6 @@ public class Teacher extends User{
         int choice = input.nextInt();
         return choice;
     }
-
-
 
     public void setCourses(List<Course> courses) {
         this.courses = courses;
