@@ -15,23 +15,28 @@ public class Main {
         schoolOfCode.add(ettan);
         schoolOfCode.add(tvåan);
 
-        Teacher klas = new Teacher("klas", "klasse@themail.com", "jensÄrBäst!");
-        Teacher annika = new Teacher("Annika", "t", "2");
-        ettan.addStudent(new Student("Nils", "s", "1"));
-        ettan.addStudent(new Student("Jens", "s", "1"));
-        tvåan.addStudent(new Student("Pär", "pe", "3"));
-        ettan.addStudent(new Student("Filip", "s", "1"));
-        Student pelle = new Student("Pelle", "p", "1");
+        Teacher klas = (Teacher) UserFactory.createUser(UserFactory.UserType.TEACHER,"Klas", "klasse@themail.com", "jensÄrBäst!");
+        Teacher annika = (Teacher) UserFactory.createUser(UserFactory.UserType.TEACHER,"Annika", "t", "2");
+        Student nils = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Nils", "s", "1");
+        Student pär = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Pär", "pe", "3");
+        Student jens = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Jens", "s", "1");
+        Student filip = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Filip", "s", "1");
+        Student pelle = (Student) UserFactory.createUser(UserFactory.UserType.STUDENT, "Pelle", "p", "1");
+
+        ettan.addStudent(nils);
+        ettan.addStudent(jens);
+        tvåan.addStudent(pär);
+        ettan.addStudent(filip);
         ettan.addStudent(pelle);
 
+        Course matte = CourseFactory.createCourse("Matte", annika);
+        Course engelska =  CourseFactory.createCourse("English", annika);
+        Course idrott = CourseFactory.createCourse("Idrott", annika);
 
-        Course matte = new Course("Matte");
-        Course engelska = new Course("Engelska");
-        Course idrott = new Course("Idrott");
         ettan.addCourse(matte);
         ettan.addCourse(engelska);
         ettan.addCourse(idrott);
-        matte.setTeacher(annika);
+
         matte.setGrades(pelle, 1);
         engelska.setGrades(pelle, 3);
 
