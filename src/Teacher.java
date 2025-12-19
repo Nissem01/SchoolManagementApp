@@ -5,14 +5,10 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Teacher extends User{
 
     private List<Course> courses = new ArrayList<>();
-
-
 
     public Teacher(String name, String email, String password) {
         super(name, email, password);
@@ -180,12 +176,7 @@ public class Teacher extends User{
 
 //    public void setGrades(Student a, String kurs, String grades) {
 //        a.updateGrades(a,kurs,grades);
-//    }
-
-
-
-
-
+//
 
     public void viewClassList(){
 
