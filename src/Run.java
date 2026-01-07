@@ -25,10 +25,20 @@ public class Run {
         return null;
     }
     public int displayStartMenu() {
-        System.out.println("==| Bästa Skolan |===");
-        System.out.println("1. Logga in");
-        System.out.println("2. Stäng av");
-        return input.nextInt();
+        while (true) {
+            System.out.println("==| Bästa Skolan |===");
+            System.out.println("1. Logga in");
+            System.out.println("2. Stäng av");
+            if (input.hasNextInt()) {
+                return input.nextInt();
+            }else {
+                input.nextLine();
+            break;
+            }
+
+
+        }
+        return 0;
     }
 
     public int displayStudentMenu() {
