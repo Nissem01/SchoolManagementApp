@@ -53,15 +53,13 @@ public class Student extends User{
         System.out.println("Klass " + s.getSchoolName());
 
         for (int i  = 0; i < courses.size(); i++) {
-            System.out.println("Kurs: "+ courses.get(i) + " "+ courses.get(i).getTeacher());
+            System.out.println("Kurs: "+ courses.get(i) + " "+ courses.get(i).getTeacher() +" Email: " + courses.get(i).getTeacher().getEmail());
         }
         System.out.println();
         for(int i  = 0; i < students.size(); i++){
             System.out.println((i+1) + ". " + students.get(i).getName()
                  +   " Mail: " + students.get(i).getEmail()   // Ska elever få tag i varandras mail?
                  );}
-
-        System.out.println();
         System.out.println();
     }
 

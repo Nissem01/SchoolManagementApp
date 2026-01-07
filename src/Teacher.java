@@ -117,6 +117,6 @@ public class Teacher extends User{
 
     @Override
     public String toString() {
-        return "Lärare " + super.getName() +" Email: " + super.getEmail();
+        return "Lärare " + super.getName();
     }
 }

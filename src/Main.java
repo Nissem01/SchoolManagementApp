@@ -58,12 +58,15 @@ public class Main {
                             switch (choice) {
                                 case 1:
                                     student.viewGrades(courses, student);
+                                    run.pressEnter();
                                     break;
                                 case 2:
                                     student.viewSchedule();
+                                    run.pressEnter();
                                     break;
                                 case 3:
                                     student.viewNewsLetter();
+                                    run.pressEnter();
                                     break;
                                 case 4:
                                     student.viewClassList(schoolClass);
@@ -71,6 +74,7 @@ public class Main {
                                     break;
                                 case 5:
                                     student.viewAbsence();
+                                    run.pressEnter();
                                     break;
                                 case 6:
                                     System.out.println("Du loggar ut!");
@@ -100,16 +104,20 @@ public class Main {
 
                                     System.out.println(studentToGrade + "s Betyg i " + choosenCourse + " är satt till: " + choosenCourse.getGrades(studentToGrade));
 
+                                    run.pressEnter();
                                     break;
                                 case 2:
                                     teacher.writeNewsLetter();
+                                    run.pressEnter();
                                     break;
                                 case 3:
                                     teacher.resetNewsLetter();
+                                    run.pressEnter();
                                     break;
                                 case 4:
                                     choosenclass = teacher.chooseSchoolClass(schoolOfCode);
                                     teacher.viewClassList(choosenclass);
+                                    run.pressEnter();
                                     break;
                                 case 5:
                                     System.out.println("Du loggar ut!");
