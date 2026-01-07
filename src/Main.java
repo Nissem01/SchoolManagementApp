@@ -26,6 +26,8 @@ public class Main {
         //bara för att hårdkoda betyget som ett exempel
         Student pelle = (Student) UserFactory.createUser(users, UserType.STUDENT, "Pelle", "p", "1", ettan);
 
+
+        //todo skapa enums för kurser
         Course matte = CourseFactory.createCourse("matte", annika, ettan);
         Course engelska = CourseFactory.createCourse("engelska", annika, ettan);
         CourseFactory.createCourse("idrott", annika, ettan);
@@ -71,6 +73,9 @@ public class Main {
                                     student.viewAbsence();
                                     break;
                                 case 6:
+                                    student.displayMessageMenu(users);
+                                    break;
+                                case 7:
                                     System.out.println("Du loggar ut!");
                                     loggedInUser = null;
                                     break;
@@ -110,6 +115,8 @@ public class Main {
                                     teacher.viewClassList(choosenclass);
                                     break;
                                 case 5:
+                                    teacher.displayMessageMenu(users);
+                                case 6:
                                     System.out.println("Du loggar ut!");
                                     loggedInUser = null;
                                     break;

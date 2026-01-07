@@ -7,9 +7,6 @@ public class Course {
     private HashMap<Student, Integer> grades = new HashMap<>();
 
 
-    public Course() {
-
-    }
     public Course(String courseName) {
         this.courseName = courseName;
     }

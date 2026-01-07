@@ -3,7 +3,6 @@ import java.util.List;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Student extends User{
@@ -30,15 +29,18 @@ public class Student extends User{
     public void setSchoolClass(SchoolClass schoolClass){
         this.schoolClass = schoolClass ;
     }
+
     public SchoolClass getSchoolClass(){
         return schoolClass;
     }
+
     public void viewGrades(List<Course> c,Student s) {
         for (int i = 0; i < c.size(); i++) {
             Course p = c.get(i);
             System.out.println(p.getCourseName() + " " + p.getGrades(s));
         }
     }
+
     public void viewSchedule() {
         createSchedule(schoolClass);
         System.out.println("\n=== Veckoschema ===\n");
@@ -61,7 +63,6 @@ public class Student extends User{
         System.out.println();
         System.out.println();
     }
-
 
     public void viewNewsLetter() {
         File file = new File("src/WeeklyNewsLetter.txt");

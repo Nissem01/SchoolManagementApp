@@ -24,6 +24,7 @@ public class Run {
         System.out.println("Fel email eller lösen");
         return null;
     }
+
     public int displayStartMenu() {
         System.out.println("==| Bästa Skolan |===");
         System.out.println("1. Logga in");
@@ -37,7 +38,8 @@ public class Run {
         System.out.println("3. Visa veckobrev");
         System.out.println("4. Visa klasslista");
         System.out.println("5. Hantera frånvaro");
-        System.out.println("6. Logga ut");
+        System.out.println("6. Meddelanden");
+        System.out.println("7. Logga ut");
         return input.nextInt();
     }
 
@@ -47,7 +49,8 @@ public class Run {
         System.out.println("2. Skriv veckobrev");
         System.out.println("3. Rensa veckobrevet");
         System.out.println("4. Visa klasslista");
-        System.out.println("5. Logga ut");
+        System.out.println("5. Meddelanden");
+        System.out.println("6. Logga ut");
         return input.nextInt();
     }
 
