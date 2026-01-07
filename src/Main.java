@@ -67,6 +67,7 @@ public class Main {
                                     break;
                                 case 4:
                                     student.viewClassList(schoolClass);
+                                    run.pressEnter();
                                     break;
                                 case 5:
                                     student.viewAbsence();

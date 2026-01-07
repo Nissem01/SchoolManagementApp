@@ -49,5 +49,16 @@ public class Run {
         System.out.println("5. Logga ut");
         return input.nextInt();
     }
+    public void pressEnter()
+    {
+        System.out.println("Tryck Enter för att återgå");
+        try
+        {
+            System.in.read();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 
