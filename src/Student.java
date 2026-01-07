@@ -14,8 +14,9 @@ public class Student extends User{
     private Scanner input = new Scanner(System.in);
     private Absence absence = new Absence();
 
-    public Student(String name, String email, String password) {
+    public Student(String name, String email, String password, SchoolClass schoolClass) {
         super(name, email, password);
+        this.schoolClass = schoolClass;
     }
     private void createSchedule(SchoolClass schoolClass){
         List<Course> courses = schoolClass.getCourses();
