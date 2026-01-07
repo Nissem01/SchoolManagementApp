@@ -47,7 +47,9 @@ public class Run {
         System.out.println("2. Skriv veckobrev");
         System.out.println("3. Rensa veckobrevet");
         System.out.println("4. Visa klasslista");
-        System.out.println("5. Logga ut");
+        System.out.println("5. Visa schema");
+        System.out.println("6. Se frånvarande elever");
+        System.out.println("7. Logga ut");
         return input.nextInt();
     }
 

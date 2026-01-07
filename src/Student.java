@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Student extends User{
@@ -74,20 +72,28 @@ public class Student extends User{
         }
     }
 
-    public void viewAbsence (){
-        System.out.println("1. Fyll i frånvaro\n" +
-                "2. Se frånvaro");
-        switch (input.nextInt()){
-            case 1:
-                absence.reportAbsence(Student.this);
-                break;
-            case 2:
-                absence.checkAbsence(Student.this);
-                break;
-            case 3:
-                break;
+    public void viewAbsence() {
+        System.out.println("1. Fyll i frånvaro\n" + "2. Se frånvaro");
+        int choice = input.nextInt();
+        input.nextLine();
+
+        if(choice == 1){
+            System.out.println("Ange dag:");
+            String day = input.nextLine().trim();
+            absence.reportAbsence(this, day);
+            System.out.println("Frånvaro registrerad");
+        }
+        else if (choice == 2) {
+            List<String> days = absence.getAbsenceDays(this);
+            if (days.isEmpty()){
+                System.out.println("Ingen frånvaro registrerad");
+            } else {
+                System.out.println("Du har varit frånvarande följande dagar: " + days);
+            }
         }
     }
+
+
     @Override
     public String toString() {
         return "Student " + super.getName();

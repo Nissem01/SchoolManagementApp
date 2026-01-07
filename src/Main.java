@@ -31,6 +31,12 @@ public class Main {
         ettan.addCourse(matte);
         ettan.addCourse(engelska);
         ettan.addCourse(idrott);
+
+        ettan.addSchedule(new Schedule("Onsdag", "08:00", "09:30", engelska));
+        ettan.addSchedule(new Schedule("Onsdag", "10:00", "11:30", matte));
+
+        tvåan.addSchedule(new Schedule("Onsdag", "08:00", "09:30", matte));
+        tvåan.addSchedule(new Schedule("Onsdag", "10:00", "11:30", engelska));
         matte.setTeacher(annika);
         matte.setGrades(pelle, 1);
         engelska.setGrades(pelle, 3);
@@ -124,6 +130,11 @@ public class Main {
                                     teacher.viewClassList(choosenclass);
                                     break;
                                 case 5:
+                                    break;
+                                case 6:
+                                    teacher.showAbsentStudents(schoolOfCode);
+                                    break;
+                                case 7:
                                     System.out.println("Du loggar ut!");
                                     loggedInUser = null;
                                     break;

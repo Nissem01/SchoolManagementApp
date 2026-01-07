@@ -1,34 +1,47 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.HashMap;
+//import java.util.Scanner;
 
 public class Absence {
 
-    Course course;
-    String date;
-    Student student = this.student;
-    List dates = new ArrayList();
+    private static HashMap<Student, List<String>> absenceByStudent = new HashMap<>();
 
+    public void reportAbsence (Student student, String day){
+        day = day.trim();
+        day = day.substring(0, 1).toUpperCase() + day.substring(1).toLowerCase();
 
-    private Scanner input = new Scanner(System.in);
+        absenceByStudent.putIfAbsent(student, new ArrayList<>());
 
-
-    public int menu(){
-        System.out.println("1. Fyll i frånvaro\n" +
-                "2. Se frånvaro");
-        return input.nextInt();
-    }
-    public void reportAbsence (Student s){
-        System.out.println("Skriv in datum för dagen du är frånvarande");
-        date = input.nextLine()+" " + s.getName();
-        System.out.println(date + " Stämmer det? j/n");
-        if (input.nextLine().equals("j")) {
-            dates.add(date);
+        if (!absenceByStudent.get(student).contains(day)){
+            absenceByStudent.get(student).add(day);
         }
     }
 
-    public void checkAbsence (Student s){
-        String name = s.getName();
-        System.out.println("Du har vart frånvarande följande dagar" + dates);
+    public List<String> getAbsenceDays(Student student){
+        if(absenceByStudent.containsKey(student)) {
+            return absenceByStudent.get(student);
+        } else{
+            return new ArrayList<>();
+        }
+    }
+
+    public HashMap<String, List<Student>> getAbsenceByDayForStudents(List<Student> students) {
+        HashMap<String, List<Student>> result = new HashMap<>();
+
+        for (Student s : students) {
+            List<String> days = getAbsenceDays(s);
+            for (String day : days){
+                day = day.trim();
+                day = day.substring(0, 1).toUpperCase() + day.substring(1).toLowerCase();
+
+                result.putIfAbsent(day, new ArrayList<>());
+
+                if (!result.get(day).contains(s)) {
+                    result.get(day).add(s);
+                }
+            }
+        }
+        return result;
     }
 }
