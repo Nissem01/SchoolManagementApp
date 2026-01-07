@@ -13,6 +13,7 @@ public class Course {
     public Course(String courseName) {
         this.courseName = courseName;
     }
+
     public Course(String courseName, Teacher teacher) {
         this.courseName = courseName;
         this.teacher = teacher;
