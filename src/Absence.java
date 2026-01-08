@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.HashMap;
 
 
-
 public class Absence {
 
     private static HashMap<Student, List<String>> absenceByStudent = new HashMap<>();
