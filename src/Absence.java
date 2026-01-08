@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
-//import java.util.Scanner;
+
+
 
 public class Absence {
 
@@ -34,7 +35,6 @@ public class Absence {
             for (String day : days){
                 day = day.trim();
                 day = day.substring(0, 1).toUpperCase() + day.substring(1).toLowerCase();
-
                 result.putIfAbsent(day, new ArrayList<>());
 
                 if (!result.get(day).contains(s)) {

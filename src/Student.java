@@ -88,7 +88,10 @@ public class Student extends User{
             if (days.isEmpty()){
                 System.out.println("Ingen frånvaro registrerad");
             } else {
-                System.out.println("Du har varit frånvarande följande dagar: " + days);
+                System.out.println("Du har varit frånvarande följande dagar:");
+                for (String day : days) {
+                    System.out.println(" - " + day);
+                }
             }
         }
     }
