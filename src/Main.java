@@ -28,9 +28,9 @@ public class Main {
 
 
         //todo skapa enums för kurser
-        Course matte = CourseFactory.createCourse("matte", annika, ettan);
-        Course engelska = CourseFactory.createCourse("engelska", annika, ettan);
-        CourseFactory.createCourse("idrott", annika, ettan);
+        Course matte = CourseFactory.createCourse(CourseType.MATTE, annika, ettan);
+        Course engelska = CourseFactory.createCourse(CourseType.ENGELSKA, annika, ettan);
+        CourseFactory.createCourse(CourseType.IDROTT, annika, ettan);
 
         matte.setGrades(pelle, 1);
         engelska.setGrades(pelle, 3);

@@ -37,7 +37,7 @@ public class Student extends User{
     public void viewGrades(List<Course> c,Student s) {
         for (int i = 0; i < c.size(); i++) {
             Course p = c.get(i);
-            System.out.println(p.getCourseName() + " " + p.getGrades(s));
+            System.out.println(p.getCourseType() + " " + p.getGrades(s));
         }
     }
 
@@ -46,7 +46,7 @@ public class Student extends User{
         System.out.println("\n=== Veckoschema ===\n");
         for (Schedule s : schedule){
             System.out.println(s.getDay() + ":");
-            System.out.println(s.getStartTime() + "-" + s.getEndTime() + " " + s.getCourse().getCourseName());
+            System.out.println(s.getStartTime() + "-" + s.getEndTime() + " " + s.getCourse().getCourseType());
             System.out.println();
         }
     }

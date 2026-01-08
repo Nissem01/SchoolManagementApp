@@ -2,17 +2,17 @@ import java.util.HashMap;
 
 public class Course {
 
-    private String courseName;
+    private CourseType courseType;
     private Teacher teacher;
     private HashMap<Student, Integer> grades = new HashMap<>();
 
 
-    public Course(String courseName) {
-        this.courseName = courseName;
+    public Course(CourseType courseType) {
+        this.courseType = courseType;
     }
 
     public Course(String courseName, Teacher teacher) {
-        this.courseName = courseName;
+        this.courseType = courseType;
         this.teacher = teacher;
         teacher.addCourse(this);
     }
@@ -24,12 +24,12 @@ public class Course {
         return grades.get(student);
     }
 
-    public String getCourseName() {
-        return courseName;
+    public CourseType getCourseType() {
+        return courseType;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setCourseType(CourseType courseType) {
+        this.courseType = courseType;
     }
 
     public Teacher getTeacher() {
@@ -42,7 +42,7 @@ public class Course {
     }
 
     public String toString(){
-        return courseName;
+        return courseType.getDisplayName();
     }
 
 }

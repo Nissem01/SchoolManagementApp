@@ -35,7 +35,7 @@ public class Teacher extends User{
     public Course getActiveCourses(List<Course> c){
         System.out.println("Välj kurs");
         for(int i  = 0; i < c.size(); i++){
-            System.out.println((i+1) + ". " + c.get(i).getCourseName());
+            System.out.println((i+1) + ". " + c.get(i).getCourseType());
         }
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();

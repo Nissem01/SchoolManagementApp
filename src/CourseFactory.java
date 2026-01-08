@@ -1,8 +1,8 @@
 
 public class CourseFactory {
 
-    public static Course createCourse(String courseName, Teacher teacher, SchoolClass schoolClass) {
-        Course course = new Course(courseName);
+    public static Course createCourse(CourseType courseType, Teacher teacher, SchoolClass schoolClass) {
+        Course course = new Course(courseType);
         course.setTeacher(teacher);
         schoolClass.addCourse(course);
         return course;
