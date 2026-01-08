@@ -19,7 +19,7 @@ public class Message {
 
     public void send() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath, true))) {
-            writer.println(splitMessageToFile(message));
+            writer.println(addSplitsToMessage(message));
         } catch (IOException e) {
             System.out.println("Kunde inte skicka meddelandet.");
         }
@@ -47,7 +47,7 @@ public class Message {
         return messages;
     }
 
-    public String splitMessageToFile(String message){
+    public String addSplitsToMessage(String message){
        return from + ";" +  to + ";" + message;
     }
 

@@ -58,6 +58,7 @@ public class Teacher extends User{
         }
         return null;
     }
+
     public int setGradeInt(){
         System.out.println("Sätt betyg 1-5:");
         Scanner input = new Scanner(System.in);
@@ -71,7 +72,6 @@ public class Teacher extends User{
     public void addCourse(Course course){
         courses.add(course);
     }
-
 
     public void viewClassList(SchoolClass s){
         List<Student> students = s.getStudents();

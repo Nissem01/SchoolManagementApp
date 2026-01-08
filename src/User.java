@@ -17,7 +17,7 @@ public abstract class User {
         this.password = password;
     }
 
-    public User chooseUser(List<User> users) {
+    public User chooseUserToMessage(List<User> users) {
         System.out.println("Välj mottagare:");
         int index = 0;
         List<User> availableUsers = new ArrayList<>();
@@ -49,7 +49,7 @@ public abstract class User {
                 viewMessages();
                 break;
             case 2:
-                User reciever = chooseUser(users);
+                User reciever = chooseUserToMessage(users);
                 sendMessage(reciever);
                 break;
         }
@@ -76,7 +76,7 @@ public abstract class User {
 
         System.out.println("Dina meddelanden:");
         for (Message message : messages) {
-            System.out.println("Från:" + message.getFrom());
+            System.out.println("Meddelande från: " + message.getFrom());
             System.out.println(message.getText());
             System.out.println("");
         }
