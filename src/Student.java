@@ -12,8 +12,9 @@ public class Student extends User{
     private Scanner input = new Scanner(System.in);
     private Absence absence = new Absence();
 
-    public Student(String name, String email, String password) {
+    public Student(String name, String email, String password, SchoolClass schoolClass) {
         super(name, email, password);
+        this.schoolClass = schoolClass;
     }
     private void createSchedule(SchoolClass schoolClass){
         List<Course> courses = schoolClass.getCourses();
@@ -48,8 +49,14 @@ public class Student extends User{
 
     public void viewClassList (SchoolClass s){
         List<Student> students = s.getStudents();
+        List<Course> courses = s.getCourses();
         System.out.println();
         System.out.println("Klass " + s.getSchoolName());
+
+        for (int i  = 0; i < courses.size(); i++) {
+            System.out.println("Kurs: "+ courses.get(i) + " "+ courses.get(i).getTeacher());
+        }
+        System.out.println();
         for(int i  = 0; i < students.size(); i++){
             System.out.println((i+1) + ". " + students.get(i).getName()
                  +   " Mail: " + students.get(i).getEmail()   // Ska elever få tag i varandras mail?
