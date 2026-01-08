@@ -1,31 +1,46 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.HashMap;
+
 
 public class Absence {
-    String date;
-    List dates = new ArrayList();
 
+    private static HashMap<Student, List<String>> absenceByStudent = new HashMap<>();
 
-    private Scanner input = new Scanner(System.in);
+    public void reportAbsence (Student student, String day){
+        day = day.trim();
+        day = day.substring(0, 1).toUpperCase() + day.substring(1).toLowerCase();
 
-//    public int menu(){
-//        System.out.println("1. Fyll i frånvaro\n" +
-//                "2. Se frånvaro");
-//        int choice = input.nextInt();
-//        return choice;
-//    }
-    public void reportAbsence (Student s){
-        System.out.println("Skriv in dagen du är frånvarande");
-        date = input.nextLine();
-        System.out.println(date + " Stämmer det? j/n");
-        if (input.nextLine().equals("j")) {
-            dates.add(s.getName() + " är frånvarande " + date);
+        absenceByStudent.putIfAbsent(student, new ArrayList<>());
+
+        if (!absenceByStudent.get(student).contains(day)){
+            absenceByStudent.get(student).add(day);
         }
     }
 
-    public void checkAbsence (Student s){
-        String name = s.getName();
-        System.out.println(dates);
+    public List<String> getAbsenceDays(Student student){
+        if(absenceByStudent.containsKey(student)) {
+            return absenceByStudent.get(student);
+        } else{
+            return new ArrayList<>();
+        }
+    }
+
+    public HashMap<String, List<Student>> getAbsenceByDayForStudents(List<Student> students) {
+        HashMap<String, List<Student>> result = new HashMap<>();
+
+        for (Student s : students) {
+            List<String> days = getAbsenceDays(s);
+            for (String day : days){
+                day = day.trim();
+                day = day.substring(0, 1).toUpperCase() + day.substring(1).toLowerCase();
+                result.putIfAbsent(day, new ArrayList<>());
+
+                if (!result.get(day).contains(s)) {
+                    result.get(day).add(s);
+                }
+            }
+        }
+        return result;
     }
 }

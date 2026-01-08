@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.io.File;
@@ -114,6 +115,45 @@ public class Teacher extends User{
             throw new RuntimeException(e);
         }
     }
+
+    public void showAbsentStudents(List<SchoolClass> schoolOfCode) {
+        Absence absence = new Absence();
+
+        List<Student> allStudents = new ArrayList<>();
+        for (SchoolClass sc : schoolOfCode){
+            allStudents.addAll(sc.getStudents());
+        }
+
+        HashMap<String, List<Student>> byDay = absence.getAbsenceByDayForStudents(allStudents);
+
+        if(byDay.isEmpty()){
+            System.out.println("Ingen frånvaro registrerad");
+            return;
+        }
+
+        System.out.println("=== Frånvarande elever ===");
+        String[] week = {"Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag"};
+
+        for (String day : week) {
+            List<Student> students = null;
+
+
+        for (String key : byDay.keySet()) {
+            if (key.equalsIgnoreCase(day)) {
+                students = byDay.get(key);
+                day = key;
+                break;
+            }
+        }
+
+        if (students == null || students.isEmpty()) continue;
+        System.out.println(day + ":");
+            for (Student s : students){
+                System.out.println(" - " + s.getName());
+            }
+        }
+    }
+
 
     @Override
     public String toString() {

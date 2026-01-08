@@ -5,6 +5,7 @@ public class SchoolClass {
     private String schoolName;
     private List<Student> students = new ArrayList<>();
     private List<Course> courses = new ArrayList<>();
+    private List<Schedule> schedule = new ArrayList<>();
 
 
     public SchoolClass(String schoolName) {
@@ -22,6 +23,10 @@ public class SchoolClass {
     }
     public void addCourse(Course course){
         courses.add(course);
+    }
+
+    public void addSchedule(Schedule s){
+        schedule.add(s);
     }
 
     public List<Student> getStudents(){
@@ -43,4 +48,7 @@ public class SchoolClass {
         return schoolName;
     }
 
+    public List <Schedule> getSchedule(){
+        return schedule;
+    }
 }
