@@ -31,6 +31,12 @@ public class Main {
         Course engelska = CourseFactory.createCourse(CourseType.ENGELSKA, annika, ettan);
         CourseFactory.createCourse(CourseType.IDROTT, annika, ettan);
 
+        ettan.addSchedule(new Schedule("Onsdag", "08:00", "09:30", engelska));
+        ettan.addSchedule(new Schedule("Onsdag", "10:00", "11:30", matte));
+
+        tvåan.addSchedule(new Schedule("Onsdag", "08:00", "09:30", matte));
+        tvåan.addSchedule(new Schedule("Onsdag", "10:00", "11:30", engelska));
+        matte.setTeacher(annika);
         matte.setGrades(pelle, 1);
         engelska.setGrades(pelle, 3);
 
@@ -41,6 +47,7 @@ public class Main {
             switch (choices) {
                 case 1:
                     User loggedInUser = run.login(users);
+                    System.out.println(loggedInUser);
 
                     while (loggedInUser == null) {
                         loggedInUser = run.login(users);
@@ -58,18 +65,23 @@ public class Main {
                             switch (choice) {
                                 case 1:
                                     student.viewGrades(courses, student);
+                                    run.pressEnter();
                                     break;
                                 case 2:
                                     student.viewSchedule();
+                                    run.pressEnter();
                                     break;
                                 case 3:
                                     student.viewNewsLetter();
+                                    run.pressEnter();
                                     break;
                                 case 4:
                                     student.viewClassList(schoolClass);
+                                    run.pressEnter();
                                     break;
                                 case 5:
                                     student.viewAbsence();
+                                    run.pressEnter();
                                     break;
                                 case 6:
                                     student.displayMessageMenu(users);
@@ -101,21 +113,28 @@ public class Main {
                                     System.out.println(choosenCourse.getGrades(studentToGrade));
                                     System.out.println(studentToGrade + "s Betyg i " + choosenCourse + " är satt till: " + choosenCourse.getGrades(studentToGrade));
 
+                                    run.pressEnter();
                                     break;
                                 case 2:
                                     teacher.writeNewsLetter();
+                                    run.pressEnter();
                                     break;
                                 case 3:
                                     teacher.resetNewsLetter();
+                                    run.pressEnter();
                                     break;
                                 case 4:
                                     choosenclass = teacher.chooseSchoolClass(schoolOfCode);
                                     teacher.viewClassList(choosenclass);
+                                    run.pressEnter();
                                     break;
                                 case 5:
                                     teacher.displayMessageMenu(users);
                                     break;
                                 case 6:
+                                    teacher.showAbsentStudents(schoolOfCode);
+                                    break;
+                                case 7:
                                     System.out.println("Du loggar ut!");
                                     loggedInUser = null;
                                     break;

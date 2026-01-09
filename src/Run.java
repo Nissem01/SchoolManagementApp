@@ -43,7 +43,6 @@ public class Run {
         return input.nextInt();
     }
 
-
     public int displayTeacherMenu() {
         System.out.println("1. Sätt betyg");
         System.out.println("2. Skriv veckobrev");
@@ -51,8 +50,21 @@ public class Run {
         System.out.println("4. Visa klasslista");
         System.out.println("5. Meddelanden");
         System.out.println("6. Logga ut");
+        System.out.println("5. Visa schema");
+        System.out.println("6. Se frånvarande elever");
+        System.out.println("7. Logga ut");
         return input.nextInt();
     }
-
+    public void pressEnter()
+    {
+        System.out.println("Tryck Enter för att återgå");
+        try
+        {
+            System.in.read();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 
