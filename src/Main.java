@@ -21,7 +21,7 @@ public class Main {
         UserFactory.createUser(users, UserType.STUDENT, "Nils", "s", "1", ettan);
         UserFactory.createUser(users, UserType.STUDENT, "Pär", "pe", "3", tvåan);
         UserFactory.createUser(users, UserType.STUDENT, "Jens", "s", "1",ettan);
-        UserFactory.createUser(users, UserType.STUDENT, "Filip", "s", "1", ettan);
+        UserFactory.createUser(users, UserType.STUDENT, "Filip", "f", "1", ettan);
 
         //bara för att hårdkoda betyget som ett exempel
         Student pelle = (Student) UserFactory.createUser(users, UserType.STUDENT, "Pelle", "p", "1", ettan);
