@@ -56,9 +56,25 @@ public abstract class User {
     }
 
     public void sendMessage(User reciever){
-        Scanner input = new Scanner(System.in);
         System.out.println("Skriv ditt meddelande:");
-        String text = input.nextLine();
+        System.out.println("Skriv exit för att sluta skriva meddelande");
+
+        String text = "";
+
+        while(true){
+            String line = input.nextLine();
+
+            if (line.equalsIgnoreCase("exit")){
+                break;
+            }
+
+            text += line + " ";
+        }
+
+        if (text.isEmpty()){
+            System.out.println("Inget meddelande skicades.");
+            return;
+        }
 
         Message message = new Message(this.getName(), reciever.getName(), text);
         message.send();
@@ -71,6 +87,7 @@ public abstract class User {
 
         if (messages.isEmpty()) {
             System.out.println("Du har inga meddelanden att läsa");
+            System.out.println("");
             return;
         }
 

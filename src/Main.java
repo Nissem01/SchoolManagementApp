@@ -27,7 +27,6 @@ public class Main {
         Student pelle = (Student) UserFactory.createUser(users, UserType.STUDENT, "Pelle", "p", "1", ettan);
 
 
-        //todo skapa enums för kurser
         Course matte = CourseFactory.createCourse(CourseType.MATTE, annika, ettan);
         Course engelska = CourseFactory.createCourse(CourseType.ENGELSKA, annika, ettan);
         CourseFactory.createCourse(CourseType.IDROTT, annika, ettan);
@@ -100,7 +99,6 @@ public class Main {
                                     int grade = teacher.setGradeInt();
                                     choosenCourse.setGrades(studentToGrade, grade);
                                     System.out.println(choosenCourse.getGrades(studentToGrade));
-
                                     System.out.println(studentToGrade + "s Betyg i " + choosenCourse + " är satt till: " + choosenCourse.getGrades(studentToGrade));
 
                                     break;
@@ -116,6 +114,7 @@ public class Main {
                                     break;
                                 case 5:
                                     teacher.displayMessageMenu(users);
+                                    break;
                                 case 6:
                                     System.out.println("Du loggar ut!");
                                     loggedInUser = null;
