@@ -47,7 +47,6 @@ public class Main {
             switch (choices) {
                 case 1:
                     User loggedInUser = run.login(users);
-                    System.out.println(loggedInUser);
 
                     while (loggedInUser == null) {
                         loggedInUser = run.login(users);
@@ -85,6 +84,7 @@ public class Main {
                                     break;
                                 case 6:
                                     student.displayMessageMenu(users);
+                                    run.pressEnter();
                                     break;
                                 case 7:
                                     System.out.println("Du loggar ut!");
@@ -130,9 +130,11 @@ public class Main {
                                     break;
                                 case 5:
                                     teacher.displayMessageMenu(users);
+                                    run.pressEnter();
                                     break;
                                 case 6:
                                     teacher.showAbsentStudents(schoolOfCode);
+                                    run.pressEnter();
                                     break;
                                 case 7:
                                     System.out.println("Du loggar ut!");
