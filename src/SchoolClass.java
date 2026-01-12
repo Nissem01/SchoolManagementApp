@@ -14,9 +14,6 @@ public class SchoolClass {
         this.courses = courses;
     }
 
-    public SchoolClass() {
-    }
-
     public void addStudent(Student student){
         students.add(student);
         student.setSchoolClass(this);

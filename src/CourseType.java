@@ -1,4 +1,5 @@
 public enum CourseType {
+
     MATTE("Matematik"),
     ENGELSKA("Engelska"),
     IDROTT("Idrott");
@@ -7,6 +8,7 @@ public enum CourseType {
     CourseType(String displayName) {
         this.displayName = displayName;
     }
+
     public String getDisplayName() {
         return displayName;
     }
@@ -15,5 +17,4 @@ public enum CourseType {
     public String toString() {
         return displayName;
     }
-
 }

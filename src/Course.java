@@ -11,7 +11,7 @@ public class Course {
         this.courseType = courseType;
     }
 
-    public Course(String courseName, Teacher teacher) {
+    public Course(CourseType courseType, Teacher teacher) {
         this.courseType = courseType;
         this.teacher = teacher;
         teacher.addCourse(this);
@@ -26,10 +26,6 @@ public class Course {
 
     public CourseType getCourseType() {
         return courseType;
-    }
-
-    public void setCourseType(CourseType courseType) {
-        this.courseType = courseType;
     }
 
     public Teacher getTeacher() {

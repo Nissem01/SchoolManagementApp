@@ -67,7 +67,6 @@ public abstract class User {
             if (line.equalsIgnoreCase("exit")){
                 break;
             }
-
             text += line + " ";
         }
 

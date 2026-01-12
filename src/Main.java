@@ -7,7 +7,9 @@ public class Main {
 
         Run run = new Run();
 
-        //fake databas
+        //Fake databas för att instantiera användare och kurser varenda gång programmet körs. Egentligen är det tänkt
+        // att dom här användarna ska skapas genom programmet av exempelvis en administratör. Alltså bara för demonstration.
+
         List<SchoolClass> schoolOfCode = new ArrayList<>();
         List<User> users = new ArrayList<>();
 
@@ -16,12 +18,11 @@ public class Main {
         schoolOfCode.add(ettan);
         schoolOfCode.add(tvåan);
 
-        Teacher klas = (Teacher) UserFactory.createUser(users, UserType.TEACHER,"Klas", "klasse@themail.com", "jensÄrBäst!", ettan);
-        Teacher annika = (Teacher) UserFactory.createUser(users, UserType.TEACHER,"Annika", "t", "2", ettan);
-        UserFactory.createUser(users, UserType.STUDENT, "Nils", "s", "1", ettan);
-        UserFactory.createUser(users, UserType.STUDENT, "Pär", "pe", "3", tvåan);
-        UserFactory.createUser(users, UserType.STUDENT, "Jens", "s", "1",ettan);
-        UserFactory.createUser(users, UserType.STUDENT, "Filip", "s", "1", ettan);
+        Teacher annika = (Teacher) UserFactory.createUser(users, UserType.TEACHER,"Annika", "AnnikaMail", "lösen", ettan);
+        UserFactory.createUser(users, UserType.STUDENT, "Nils", "NilsMail", "lösen", ettan);
+        UserFactory.createUser(users, UserType.STUDENT, "Pär", "PärMail", "lösen", tvåan);
+        UserFactory.createUser(users, UserType.STUDENT, "Jens", "JensMail", "lösen",ettan);
+        UserFactory.createUser(users, UserType.STUDENT, "Filip", "FilipMail", "lösen", ettan);
 
         //bara för att hårdkoda betyget som ett exempel
         Student pelle = (Student) UserFactory.createUser(users, UserType.STUDENT, "Pelle", "p", "1", ettan);
@@ -36,7 +37,6 @@ public class Main {
 
         tvåan.addSchedule(new Schedule("Onsdag", "08:00", "09:30", matte));
         tvåan.addSchedule(new Schedule("Onsdag", "10:00", "11:30", engelska));
-        matte.setTeacher(annika);
         matte.setGrades(pelle, 1);
         engelska.setGrades(pelle, 3);
 
@@ -111,8 +111,7 @@ public class Main {
                                     int grade = teacher.setGradeInt();
                                     choosenCourse.setGrades(studentToGrade, grade);
                                     System.out.println(choosenCourse.getGrades(studentToGrade));
-                                    System.out.println(studentToGrade + "s Betyg i " + choosenCourse + " är satt till: " + choosenCourse.getGrades(studentToGrade));
-
+                                    System.out.println(studentToGrade + " betyg i " + choosenCourse + " är satt till: " + choosenCourse.getGrades(studentToGrade));
                                     run.pressEnter();
                                     break;
                                 case 2:

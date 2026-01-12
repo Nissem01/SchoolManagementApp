@@ -7,5 +7,4 @@ public class CourseFactory {
         schoolClass.addCourse(course);
         return course;
     }
-
 }
