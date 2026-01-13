@@ -20,12 +20,12 @@ public class Main {
 
         Teacher annika = (Teacher) UserFactory.createUser(users, UserType.TEACHER,"Annika", "AnnikaMail", "lösen", ettan);
         UserFactory.createUser(users, UserType.STUDENT, "Nils", "NilsMail", "lösen", ettan);
-        UserFactory.createUser(users, UserType.STUDENT, "Pär", "PärMail", "lösen", tvåan);
         UserFactory.createUser(users, UserType.STUDENT, "Jens", "JensMail", "lösen",ettan);
         UserFactory.createUser(users, UserType.STUDENT, "Filip", "FilipMail", "lösen", ettan);
+        UserFactory.createUser(users, UserType.STUDENT, "Pär", "PärMail", "lösen", tvåan);
 
         //bara för att hårdkoda betyget som ett exempel
-        Student pelle = (Student) UserFactory.createUser(users, UserType.STUDENT, "Pelle", "p", "1", ettan);
+        Student pelle = (Student) UserFactory.createUser(users, UserType.STUDENT, "Pelle", "PelleMail", "lösen", ettan);
 
 
         Course matte = CourseFactory.createCourse(CourseType.MATTE, annika, ettan);

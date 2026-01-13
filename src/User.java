@@ -19,9 +19,8 @@ public abstract class User {
 
     public User chooseUserToMessage(List<User> users) {
         System.out.println("Välj mottagare:");
-        int index = 0;
+        int index = 1;
         List<User> availableUsers = new ArrayList<>();
-
 
         for (User user : users) {
             if (!user.equals(this)) {
@@ -34,7 +33,7 @@ public abstract class User {
         int choice = input.nextInt();
         input.nextLine();
 
-        return availableUsers.get(choice);
+        return availableUsers.get(choice -1);
     }
 
     public void displayMessageMenu(List<User> users) {
@@ -102,17 +101,11 @@ public abstract class User {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPassword() {
         return password;
